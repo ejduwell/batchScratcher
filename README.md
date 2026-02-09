@@ -23,10 +23,12 @@ Open a terminal and run:
 cd ~/Documents/MATLAB
 
 # Clone the repository from GitHub
-git clone https://github.com/yourGithubUsername/yourProjectRepoName.git
+git clone https://github.com/ejduwell/batchScratcher.git
+```
 
+```matlab
 # Open MATLAB and add the project to your path:
-addpath(genpath('~/Documents/MATLAB/yourProjectRepoName'))
+addpath(genpath('~/Documents/MATLAB/batchScratcher'));
 savepath
 ```
 
@@ -37,14 +39,14 @@ savepath
 
 ```matlab
 % Change directory to desired location
-cd('C:\Users\YourName\Documents\MATLAB')
+cd('C:\Users\YourName\Documents\MATLAB');
 
 % Clone from GitHub (or download ZIP and unzip manually)
-system('git clone https://github.com/yourGithubUsername/yourProjectRepoName.git')
+system('git clone https://github.com/ejduwell/batchScratcher.git');
 
 % Add the project folder to your MATLAB path:
-addpath(genpath('C:\Users\YourName\Documents\MATLAB\yourProjectRepoName'))
-savepath
+addpath(genpath('C:\Users\YourName\Documents\MATLAB\batchScratcher'));
+savepath;
 ```
 
 ## Usage
