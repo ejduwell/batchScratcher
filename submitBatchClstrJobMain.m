@@ -82,6 +82,15 @@ jobIn.mainFcn.outVars={}; % output variables
 jobIn.mainFcn.nFcnOutputs=0; % number of function inputs
 %--------------------------------------------------------------------------
 
+% parameters for pulling remote data on cluster back to local machine
+%--------------------------------------------------------------------------
+jobIn.pullDownTimeStr="00-01:00:00";
+jobIn.pullDownCPUs=16;
+jobIn.pullDown.CleanRemoteTar=true;
+jobIn.pullDown.CleanRemoteJob=true;
+jobIn.pullDown.CleanLocalTar=true;
+%--------------------------------------------------------------------------
+
 %% Run submitBatchClstrJob_v1 to submit batch job
 
 jobOut = submitBatchClstrJob_v1(jobIn);
