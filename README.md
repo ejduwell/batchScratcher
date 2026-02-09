@@ -44,10 +44,9 @@ To use this code:
 
 | File/Folder            | Description                                       |
 |------------------------|---------------------------------------------------|
-| `submitBatchClstrJobMain.m`     | Primary script for submitting batch jobs                 |
-| `miscFcns/`            | User-defined functions that did not match a tag  |
-| `subFolderName/`       | Functions grouped based on original path tags     |
-| `data/`, `figures/`    | Additional manually created folders if present    |
+| `submitBatchClstrJobMain.m`     | Primary script for submitting batch jobs. Effectively serves as a 'wrapper' for 'submitBatchClstrJob_v1.m'                 |
+| `submitBatchClstrJob_v1.m`     | Main function called by 'submitBatchClstrJobMain.m' for preparing copies of a local project directory, pushing it to the cluster's scratch, and submitting scripts to run there remotely as batch jobs                 |
+| `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
 
 
 ## Acknowledgements
