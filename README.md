@@ -12,7 +12,7 @@ Repository of functions that automate pushing data from your local machine to th
 - Required Toolbox(es):
   - MATLAB (base)
   - [MATLAB Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html)
-  - Access to a remote SLURM cluster running [Matlab Parallel Server](https://www.mathworks.com/products/matlab-parallel-server.html)
+- Access to a remote SLURM cluster running [Matlab Parallel Server](https://www.mathworks.com/products/matlab-parallel-server.html)
 
 ## Installation
 
