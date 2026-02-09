@@ -7,10 +7,10 @@ Repository of functions that automate pushing data from your local machine to th
 
 ## Dependencies
 
+- Must be running either a Unix/Linux-based OS or macOS
 - MATLAB R2021a or newer
 - Required Toolbox(es):
   - MATLAB (base)
-  - [Add any additional toolboxes used]
 
 ## Installation
 
@@ -32,23 +32,6 @@ addpath(genpath('~/Documents/MATLAB/batchScratcher'));
 savepath;
 ```
 
-### Windows
-
-1. Open MATLAB
-2. In the Command Window, run:
-
-```matlab
-% Change directory to desired location
-cd('C:\Users\YourName\Documents\MATLAB');
-
-% Clone from GitHub (or download ZIP and unzip manually)
-system('git clone https://github.com/ejduwell/batchScratcher.git');
-
-% Add the project folder to your MATLAB path:
-addpath(genpath('C:\Users\YourName\Documents\MATLAB\batchScratcher'));
-savepath;
-```
-
 ## Usage
 
 To use this code:
@@ -61,7 +44,7 @@ To use this code:
 
 | File/Folder            | Description                                       |
 |------------------------|---------------------------------------------------|
-| `submitBatchClstrJobMain.m`     | Primary script to run the project                 |
+| `submitBatchClstrJobMain.m`     | Primary script for submitting batch jobs                 |
 | `miscFcns/`            | User-defined functions that did not match a tag  |
 | `subFolderName/`       | Functions grouped based on original path tags     |
 | `data/`, `figures/`    | Additional manually created folders if present    |
