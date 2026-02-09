@@ -46,6 +46,7 @@ To use this code:
 |------------------------|---------------------------------------------------|
 | `submitBatchClstrJobMain.m`     | Primary script for submitting batch jobs. Effectively serves as a 'wrapper' for 'submitBatchClstrJob_v1.m'                 |
 | `submitBatchClstrJob_v1.m`     | Main function called by 'submitBatchClstrJobMain.m' for preparing copies of a local project directory, pushing it to the cluster's scratch, and submitting scripts to run there remotely as batch jobs                 |
+| `rxivMatlabPrjctDir4RemoteJob.m`     | Main function called by 'submitBatchClstrJob_v1.m' for compressing the local project directory. Effectively serves as a wrapper for the bash function 'rxivMatlabCode_v5.sh' which compresses subselections of data contained within the folder to tar.gz while maintaining the organizational structure of the project directory              |
 | `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
 
 
