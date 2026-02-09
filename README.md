@@ -147,7 +147,6 @@ jobIn.prjctDirCpyPars.fileExtnz={".m",".sh",".lt",".1D"};
 jobIn.prjctDirCpyPars.indFiles={ ...
     "path/to/your/individalFileToInclude.ext", ...
     };
-
 % Specify 'dirs2Ignore' (set of subdirectories in your project directory to
 % 'ignore'/not include in the compressed copy pushed to the cluster 
 % regardless of whether their extensions are in the fileExtnz set.) 
@@ -162,6 +161,7 @@ jobIn.prjctDirCpyPars.compress=1; % 1 or 0, (probably want 1 to compress..)
 % the path specified as 'baseDir' above using 'fileparts' function:
 [~,programDirName,~]=fileparts(jobIn.prjctDirCpyPars.baseDir);
 jobIn.programDirName=programDirName;
+%--------------------------------------------------------------------------
 
 % pigz compression options:
 %--------------------------------------------------------------------------
@@ -177,22 +177,30 @@ jobIn.mainClusterPath="/scratch/g/agreenberg/eduwell/projects/matlabBatchScratch
 % Set cluster profile name for your cluster:
 jobIn.clstrProfile="HPC Cluster"; % cluster profile name string (ie like "HPC Cluster")
 
-% Specify additional SLURM headers 
+% Specify additional SLURM headers
+%--------------------------------------------------------------------------
 jobIn.adnlArgs.timeInfo='--time=00-01:00:00'; % string describing time reserved for job in format : '--time=DD-HH:MM:SS';
 jobIn.adnlArgs.memPerCpu='--mem-per-cpu=7gb'; % memory per cpu
 jobIn.adnlArgs.ntasks='--ntasks=1'; % number of tasks
 jobIn.adnlArgs.cpusPerTask="--cpus-per-task=32";  % number of cpus per task
+%--------------------------------------------------------------------------
 
 % specify cluster hostname/username info..
+%--------------------------------------------------------------------------
 jobIn.clusterHostname="login-hpc.rcc.yerCluster.edu";
 jobIn.clusterUsername="yerUserName";
-% specify function/script to run along with input pdf and output vars
+%--------------------------------------------------------------------------
+
+% specify function/script to run as a batch job along with input pdf and output vars
+%--------------------------------------------------------------------------
 jobIn.mainFcn.fname="yourScript2RunAsBatchJob";
 % specify parameter descriptor file if your function/script uses one
 % (otherwise feel free to ignore/comment out)
 jobIn.mainFcn.inputPDF={};
 jobIn.mainFcn.outVars={}; % output variables
 jobIn.mainFcn.nFcnOutputs=0; % number of function inputs
+%--------------------------------------------------------------------------
+
 ```
 
 ## Acknowledgements:
