@@ -11,7 +11,7 @@ Repository of functions that automate pushing data from your local machine to th
 - MATLAB R2021a or newer
 - Required Toolbox(es):
   - MATLAB (base)
-  - [MATLAB Parallel Computing Toolbox]('https://www.mathworks.com/products/parallel-computing.html')
+  - [MATLAB Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html)
 
 ## Installation
 
