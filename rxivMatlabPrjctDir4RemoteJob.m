@@ -66,7 +66,7 @@ pathToThisFile=which("rxivMatlabPrjctDir4RemoteJob.m");
 currentDir = fileparts(pathToThisFile);
 
 % ensure rxivMatlabCode.sh is executable..
-chmodCmd=strcat("chmod +wrx ",currentDir,"/rxivMatlabCode_v4.sh ");
+chmodCmd=strcat("chmod +wrx ",currentDir,"/rxivMatlabCode_v5.sh ");
 system(chmodCmd);
 
 % extract/combine extension strings in fileExtnz into list for inclusion in
