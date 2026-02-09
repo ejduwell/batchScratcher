@@ -27,7 +27,7 @@ git clone https://github.com/ejduwell/batchScratcher.git
 ```
 
 ```matlab
-# Open MATLAB and add the project to your path:
+% Open MATLAB and add the project to your path:
 addpath(genpath('~/Documents/MATLAB/batchScratcher'));
 savepath;
 ```
