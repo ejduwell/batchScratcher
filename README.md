@@ -162,18 +162,26 @@ jobIn.prjctDirCpyPars.compress=1; % 1 or 0, (probably want 1 to compress..)
 % the path specified as 'baseDir' above using 'fileparts' function:
 [~,programDirName,~]=fileparts(jobIn.prjctDirCpyPars.baseDir);
 jobIn.programDirName=programDirName;
+
 % pigz compression options:
+%--------------------------------------------------------------------------
 jobIn.prjctDirCpyPars.pigzPars=struct; % preallocate
 jobIn.prjctDirCpyPars.pigzPars.usePigz=1; % use pigz to parallelize compression or no (1 or 0)
 jobIn.prjctDirCpyPars.pigzPars.nCpus4Pigz=16; % set # of cpus for pigz to use
 %--------------------------------------------------------------------------
+
+% specify path to your "matlabBatchScratch" folder in scratch on the cluster
+% (you need to make this there..)
 jobIn.mainClusterPath="/scratch/g/agreenberg/eduwell/projects/matlabBatchScratch";
+
+% Set cluster profile name for your cluster:
 jobIn.clstrProfile="HPC Cluster"; % cluster profile name string (ie like "HPC Cluster")
+
+% Specify additional SLURM headers 
 jobIn.adnlArgs.timeInfo='--time=00-01:00:00'; % string describing time reserved for job in format : '--time=DD-HH:MM:SS';
-jobIn.adnlArgs.memPerCpu='--mem-per-cpu=7gb';
-jobIn.adnlArgs.ntasks='--ntasks=1';
-%jobIn.adnlArgs.cpusPerTask="--cpus-per-task=48";
-jobIn.adnlArgs.cpusPerTask="--cpus-per-task=32";  
+jobIn.adnlArgs.memPerCpu='--mem-per-cpu=7gb'; % memory per cpu
+jobIn.adnlArgs.ntasks='--ntasks=1'; % number of tasks
+jobIn.adnlArgs.cpusPerTask="--cpus-per-task=32";  % number of cpus per task
 
 % specify cluster hostname/username info..
 jobIn.clusterHostname="login-hpc.rcc.yerCluster.edu";
@@ -183,8 +191,8 @@ jobIn.mainFcn.fname="yourScript2RunAsBatchJob";
 % specify parameter descriptor file if your function/script uses one
 % (otherwise feel free to ignore/comment out)
 jobIn.mainFcn.inputPDF={};
-jobIn.mainFcn.outVars={};
-jobIn.mainFcn.nFcnOutputs=0; 
+jobIn.mainFcn.outVars={}; % output variables
+jobIn.mainFcn.nFcnOutputs=0; % number of function inputs
 ```
 
 ## Acknowledgements:
