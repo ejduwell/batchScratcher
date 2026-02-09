@@ -97,15 +97,7 @@ ssh username@login-hpc.cluster.hostname.edu
 ```
 If the ssh key setup above worked, you should now no longer be prompted for a password to login to the cluster.
 
-## Usage
-
-To use this code:
-
-1. Open MATLAB
-2. Add the root project folder to your MATLAB path (if not already done)
-3. Locate and run the main entry-point script(s) — found in the top level of the folder (e.g., `submitBatchClstrJobMain.m`).
-
-### First, a brief list and overview of important files & folders:
+## A brief list and overview of important files & folders:
 
 | File/Folder            | Description                                       |
 |------------------------|---------------------------------------------------|
@@ -115,7 +107,16 @@ To use this code:
 | `rxivMatlabCode_v5.sh`     | Bash function called by 'rxivMatlabPrjctDir4RemoteJob.m' for preparing copies of a local project directory, pushing it to the cluster's scratch, and submitting scripts to run there remotely as batch jobs                 |
 | `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
 
-### To use batchScratcher to submit a batch job, first open 'submitBatchClstrJobMain.m' and update the parameters under the 'Set Pars' section:
+## Usage
+
+To use this code:
+
+1. Open MATLAB
+2. Add the root project folder to your MATLAB path (if not already done)
+3. Locate and run the main entry-point script(s) — found in the top level of the folder (e.g., `submitBatchClstrJobMain.m`).
+4. 
+
+### First open 'submitBatchClstrJobMain.m' and update the parameters under the 'Set Pars' section:
 
 ```matlab
 %% Set Pars
