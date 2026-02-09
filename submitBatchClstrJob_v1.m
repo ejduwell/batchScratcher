@@ -109,6 +109,44 @@ disp(durTmp);
 disp(" ")
 disp("Job is finished. Total run time was:")
 disp(glblDur);
+
+%% Pull down the remote directory copy with data to local machine
+
+% save start location
+startDir=pwd;
+% auto find batchScratch project directory
+[batchScrathProjDir,~,~]=fileparts(which("pullRemoteDirTarSlurm_v1.m"));
+% enter it
+cd(batchScrathProjDir);
+% make sure pull_remote_dir_tar_slurm.sh is executeable..
+chmodCmd="chmod +x pull_remote_dir_tar_slurm.sh";
+system(chmodCmd);
+% return to start location
+cd(startDir);
+clear startDir;
+% set bashFcnPath for 'pull_remote_dir_tar_slurm.sh'
+bashFcnPath=strcat(batchScrathProjDir,"/pull_remote_dir_tar_slurm.sh");
+
+disp(" ");
+disp("Pulling data from remote cluster back to local machine...")
+strtTmp=datetime;
+[st,out,exdir,tar] = pullRemoteDirTarSlurm_v1( ...
+  jobIn.clusterHostname, ...
+  clstrMirPgrmDir, ...
+  tgzPath, ...
+  jobIn.clusterPIaccount, ...
+  jobIn.pullDownTimeStr, ...
+  jobIn.pullDownCPUs, ...
+  'BashSourceFile',bashFcnPath, ...
+  'CleanRemoteTar',jobIn.pullDown.CleanRemoteTar, ...
+  'CleanRemoteJob',jobIn.pullDown.CleanRemoteJob, ...
+  'CleanLocalTar',jobIn.pullDown.CleanLocalTar);
+
+endTmp=datetime;
+durTmp=endTmp-strtTmp;
+disp("Finished pulling data from remote cluster back to local machine in:")
+disp(durTmp);
+
 disp(" ");
 disp("Take care now! Bye Bye then!");
 disp(" ");
