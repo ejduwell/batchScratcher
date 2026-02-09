@@ -27,7 +27,7 @@ Repository of functions that automate pushing data from your local machine to th
 - If you have not done so already, follow the instructions provided [HERE](https://docs.rcc.mcw.edu/software/matlab/)
 - Then proceed with the instructions below.
 
-**(Step 01) Install batchScratcher and add to path**
+**(Step 01) Install batchScratcher and add to path:**
 
 Open a terminal and run:
 
@@ -45,7 +45,7 @@ addpath(genpath('~/Documents/MATLAB/batchScratcher'));
 savepath;
 ```
 
-**(Step 02) Set up SSH keys**
+**(Step 02) Set up SSH keys:**
 
 Open a terminal and run the following (replace email place-holder with your own):
 
