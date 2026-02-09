@@ -42,7 +42,7 @@ To use this code:
 2. Add the root project folder to your MATLAB path (if not already done)
 3. Locate and run the main entry-point script(s) — found in the top level of the folder (e.g., `submitBatchClstrJobMain.m`).
 
-### Common File Types
+### Important Files/Folders:
 
 | File/Folder            | Description                                       |
 |------------------------|---------------------------------------------------|
