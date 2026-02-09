@@ -105,7 +105,11 @@ If the ssh key setup above worked, you should now no longer be prompted for a pa
 | `submitBatchClstrJob_v1.m`     | Main function called by 'submitBatchClstrJobMain.m' for preparing copies of a local project directory, pushing it to the cluster's scratch, and submitting scripts to run there remotely as batch jobs                 |
 | `rxivMatlabPrjctDir4RemoteJob.m`     | Main function called by 'submitBatchClstrJob_v1.m' for compressing the local project directory. Effectively serves as a wrapper for the bash function 'rxivMatlabCode_v5.sh' which compresses subselections of data contained within the folder to tar.gz while maintaining the organizational structure of the project directory              |
 | `rxivMatlabCode_v5.sh`     | Bash function called by 'rxivMatlabPrjctDir4RemoteJob.m' for preparing compressed copies of a local project directory. Allows subselection of files in specific sub-directories and/or particular filetypes while maintaining overall directory structure                |
+| `pullRemoteDirTarSlurm_v1.m`     | Matlab wrapper function for 'pull_remote_dir_tar_slurm.sh' that compresses remote directory on cluster when job is done and pulls data back to local machine.              |
+| `pull_remote_dir_tar_slurm.sh`     | Bash function called by 'pullRemoteDirTarSlurm_v1.m' for preparing and pulling compressed copies of a remote project directory on cluster after the job is done.                |
 | `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
+
+
 
 ## Usage:
 
