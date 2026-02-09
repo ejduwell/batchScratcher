@@ -27,10 +27,11 @@ Repository of functions that automate pushing data from your local machine to th
 - If you have not done so already, follow the instructions provided [HERE](https://docs.rcc.mcw.edu/software/matlab/)
 - Then proceed with the instructions below.
 
-<h1 style="text-align: center;">Your Centered Title</h1>
-<div style="text-align: center;">
+<center>
+
 **(Step 01) Install batchScratcher and add to path**
-</div>
+
+</center>
 
 Open a terminal and run:
 
