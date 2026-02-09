@@ -86,7 +86,6 @@ jobIn.mainFcn.nFcnOutputs=0; % number of function inputs
 
 jobOut = submitBatchClstrJob_v1(jobIn);
 
-
 %% Clean up
 
 clear;
