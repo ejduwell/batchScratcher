@@ -29,7 +29,7 @@ git clone https://github.com/ejduwell/batchScratcher.git
 ```matlab
 # Open MATLAB and add the project to your path:
 addpath(genpath('~/Documents/MATLAB/batchScratcher'));
-savepath
+savepath;
 ```
 
 ### Windows
@@ -51,19 +51,17 @@ savepath;
 
 ## Usage
 
-This project was exported using the `pipeCleaner` tool. The root directory and sub-directories within contain all required `.m` files needed to run the pipeline.
-
 To use this code:
 
 1. Open MATLAB
 2. Add the root project folder to your MATLAB path (if not already done)
-3. Locate and run the main entry-point script(s) — typically found in the top level of the folder (e.g., `yourMainScript.m`).
+3. Locate and run the main entry-point script(s) — found in the top level of the folder (e.g., `submitBatchClstrJobMain.m`).
 
 ### Common File Types
 
 | File/Folder            | Description                                       |
 |------------------------|---------------------------------------------------|
-| `yourMainScript.m`     | Primary script to run the project                 |
+| `submitBatchClstrJobMain.m`     | Primary script to run the project                 |
 | `miscFcns/`            | User-defined functions that did not match a tag  |
 | `subFolderName/`       | Functions grouped based on original path tags     |
 | `data/`, `figures/`    | Additional manually created folders if present    |
