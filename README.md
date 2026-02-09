@@ -1,11 +1,11 @@
 # batchScratcher
 Repository of functions that automate pushing data from your local machine to the scratch folder on a remote SLURM cluster with MATLAB Parallel Server installed, running remote 'batch' jobs, and retrieving the data.
 
-## Overview
+## Overview:
 
 **batchScratcher** is a MATLAB-based project developed to provide a standalone, standardized, (hopefully) more intuitive framework for submitting 'batch' jobs to remote clusters running Matlab Parallel Server. This repository contains code that automates compressing a local copy of a project folder, pushing that project to the remote cluster, running a specified script as a 'batch' job, and retrieving the data back to your local machine.
 
-## Dependencies
+## Dependencies:
 
 - Must be running either a Unix/Linux-based OS or macOS
 - Must have SSH installed and enabled
@@ -17,7 +17,7 @@ Repository of functions that automate pushing data from your local machine to th
 - Access to a remote SLURM cluster running [Matlab Parallel Server](https://www.mathworks.com/products/matlab-parallel-server.html)
   - For users at the Medical College of Wisconsin, instructions for setting up access to the Matlab Parallel Server on the HPC cluster can be found [HERE](https://docs.rcc.mcw.edu/software/matlab/)
 
-## Installation
+## Installation:
 
 ### macOS and Linux
 
@@ -107,7 +107,7 @@ If the ssh key setup above worked, you should now no longer be prompted for a pa
 | `rxivMatlabCode_v5.sh`     | Bash function called by 'rxivMatlabPrjctDir4RemoteJob.m' for preparing copies of a local project directory, pushing it to the cluster's scratch, and submitting scripts to run there remotely as batch jobs                 |
 | `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
 
-## Usage
+## Usage:
 
 To use this code:
 
@@ -187,7 +187,7 @@ jobIn.mainFcn.outVars={};
 jobIn.mainFcn.nFcnOutputs=0; 
 ```
 
-## Acknowledgements
+## Acknowledgements:
 
 
 ---
