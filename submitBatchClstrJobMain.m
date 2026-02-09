@@ -1,6 +1,9 @@
 
 %% Set Pars
 
+% auto-detect where the batchScratcher is installed on this machine
+[projDirPath,~,~]=fileparts(which("submitBatchClstrJobMain.m"));
+
 jobIn=struct; % intialize main struct..
 
 % generate unique temp subdir for mirroring to cluster:
@@ -14,7 +17,7 @@ jobIn.prjctDirCpyPars=struct; % initialize
 jobIn.prjctDirCpyPars.baseDir="/path/to/your/local/project/directory";
 % set 'outDirBase' (path to where you want local compressed copy pushed to
 % the cluster to be generated)
-jobIn.prjctDirCpyPars.outDirBase=strcat("/path/to/your/mirror2cluster/folder",tmpMirrorDir);
+jobIn.prjctDirCpyPars.outDirBase=strcat(projDirPath,"/mirror2cluster/",tmpMirrorDir);
 % make the output dir for mirroring prior to running job..
 [statusTmp,msgTmp,msgIDtmp]=mkdir(jobIn.prjctDirCpyPars.outDirBase);
 % specify set of extensions for filetypes you want to be included in the
@@ -66,8 +69,6 @@ jobIn.mainFcn.nFcnOutputs=0;
 %% Run submitBatchClstrJob_v1 to submit batch job
 
 jobOut = submitBatchClstrJob_v1(jobIn);
-
-%% Extract/save function outputs data if present
 
 
 %% Clean up
