@@ -201,6 +201,16 @@ jobIn.mainFcn.outVars={}; % output variables
 jobIn.mainFcn.nFcnOutputs=0; % number of function inputs
 %--------------------------------------------------------------------------
 
+% parameters for pulling remote data on cluster back to local machine
+%--------------------------------------------------------------------------
+jobIn.pullDownTimeStr="00-01:00:00";
+jobIn.pullDownCPUs=16;
+jobIn.pullDown.CleanRemoteTar=true;
+jobIn.pullDown.CleanRemoteJob=true;
+jobIn.pullDown.CleanLocalTar=true;
+%--------------------------------------------------------------------------
+
+
 ```
 ### 2) Run submitBatchClstrJobMain.m to submit the job:
 
