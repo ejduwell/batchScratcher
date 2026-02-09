@@ -5,8 +5,6 @@ Repository of functions that automate pushing data from your local machine to th
 
 **batchScratcher** is a MATLAB-based project developed to provide a standalone, standardized, (hopefully) more intuitive framework for submitting 'batch' jobs to remote clusters running Matlab Parallel Server. This repository contains code that automates compressing a local copy of a project folder, pushing that project to the remote cluster, running a specified script as a 'batch' job, and retrieving the data back to your local machine.
 
-This version of the repository was exported and cleaned using [`pipeCleaner`](https://github.com/ejduwell/pipeCleaner), which automatically finds and organizes all required dependencies into a single structured directory for sharing and archival.
-
 ## Dependencies
 
 - MATLAB R2021a or newer
