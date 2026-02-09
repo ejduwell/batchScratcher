@@ -193,6 +193,7 @@ jobIn.adnlArgs.cpusPerTask="--cpus-per-task=32";  % number of cpus per task
 %--------------------------------------------------------------------------
 jobIn.clusterHostname="login-hpc.rcc.yerCluster.edu";
 jobIn.clusterUsername="yerUserName";
+jobIn.clusterPIaccount="yerPIsAccountName";
 %--------------------------------------------------------------------------
 
 % specify function/script to run as a batch job along with input pdf and output vars
