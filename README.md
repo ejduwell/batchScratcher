@@ -66,14 +66,8 @@ To use this code:
 | `subFolderName/`       | Functions grouped based on original path tags     |
 | `data/`, `figures/`    | Additional manually created folders if present    |
 
-## Tips for Reuse
-
-- If you are adapting this repository for your own project, rename the folder and scripts as needed.
-- If you wish to clean/export a new version, use `pipeCleaner` to regenerate a fresh copy with updated dependencies.
-- If you make changes to file structure, be sure to re-test that your pipeline runs correctly.
 
 ## Acknowledgements
 
-This project was cleaned and exported using the [pipeCleaner](https://github.com/ejduwell/pipeCleaner) tool, developed by Ethan Duwell, PhD (2025), with support from OpenAI’s GPT-4o model.
 
 ---
