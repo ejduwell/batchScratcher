@@ -65,12 +65,14 @@ Press Enter to accept the default.
 Next you'll see something like this:
 
 ```bash
+Enter passphrase (empty for no passphrase):
 ```
 
 Simply press enter to proceed without a passphrase.
 This allows for full automation of ssh/rsync pushing/pulling data to the remote cluster wihout needing to manualy provide a password every time.
-It will result in the followng files:
+However, public/private ssh key pairs will be generated to allow secure ssh access without a password.
 
+It will result in the followng files:
 ```bash
 ~/.ssh/id_ed25519        (private key — keep secret)
 ~/.ssh/id_ed25519.pub    (public key — safe to share)
@@ -89,6 +91,12 @@ If successful, you’ll see something like:
 ```bash
 Number of key(s) added: 1
 ```
+
+To further test whether you were successful, try logging into the cluster via ssh:
+```bash
+ssh username@login-hpc.cluster.hostname.edu
+```
+If the ssh key setup above worked, you should now no longer be prompted for a password to login to the cluster.
 
 ## Usage
 
