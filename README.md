@@ -13,6 +13,7 @@ Repository of functions that automate pushing data from your local machine to th
   - MATLAB (base)
   - [MATLAB Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html)
 - Access to a remote SLURM cluster running [Matlab Parallel Server](https://www.mathworks.com/products/matlab-parallel-server.html)
+  - For users at the Medical College of Wisconsin, instructions for setting up access to the Matlab Parallel Server on the HPC cluster can be found [HERE](https://docs.rcc.mcw.edu/software/matlab/)
 
 ## Installation
 
