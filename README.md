@@ -29,6 +29,7 @@ Repository of functions that automate pushing data from your local machine to th
 
 
 **(Step 01) Install batchScratcher and add to path**
+
 Open a terminal and run:
 
 ```bash
@@ -46,6 +47,48 @@ savepath;
 ```
 
 **(Step 02) Set up SSH keys**
+
+Open a terminal and run the following (replace email place-holder with your own):
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@abc.edu"
+```
+
+You’ll see prompts like:
+
+```bash
+Enter file in which to save the key (/home/username/.ssh/id_ed25519):
+```
+
+Press Enter to accept the default.
+
+Next you'll see something like this:
+
+```bash
+```
+
+Simply press enter to proceed without a passphrase.
+This allows for full automation of ssh/rsync pushing/pulling data to the remote cluster wihout needing to manualy provide a password every time.
+It will result in the followng files:
+
+```bash
+~/.ssh/id_ed25519        (private key — keep secret)
+~/.ssh/id_ed25519.pub    (public key — safe to share)
+```
+
+You now need to install your public key on the cluster (replace 'username' and 'login-hpc.cluster.hostname.edu' with your cluster username and cluster hostname):
+
+```bash
+ssh-copy-id username@login-hpc.cluster.hostname.edu
+```
+
+You’ll be prompted once for your password.
+
+If successful, you’ll see something like:
+
+```bash
+Number of key(s) added: 1
+```
 
 ## Usage
 
