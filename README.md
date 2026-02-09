@@ -8,9 +8,11 @@ Repository of functions that automate pushing data from your local machine to th
 ## Dependencies
 
 - Must be running either a Unix/Linux-based OS or macOS
-- MATLAB R2021a or newer
-- Required Toolbox(es):
-  - MATLAB (base)
+- Must have SSH installed and enabled
+- Must have rsync installed
+- Must have pigz installed for parallelized/accelerated compression features for compressing project directory.
+- MATLAB (I developed this using R2025b)
+- Required MATLAB Toolbox(es):
   - [MATLAB Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html)
 - Access to a remote SLURM cluster running [Matlab Parallel Server](https://www.mathworks.com/products/matlab-parallel-server.html)
   - For users at the Medical College of Wisconsin, instructions for setting up access to the Matlab Parallel Server on the HPC cluster can be found [HERE](https://docs.rcc.mcw.edu/software/matlab/)
@@ -19,6 +21,14 @@ Repository of functions that automate pushing data from your local machine to th
 
 ### macOS and Linux
 
+**(Step 00) If you are an MCW user, you must first set up access to MATLAB Parallel Server:**
+
+(I presume a similar procedure will likely be in place at other institutions)
+- If you have not done so already, follow the instructions provided [HERE](https://docs.rcc.mcw.edu/software/matlab/)
+- Then proceed with the instructions below.
+
+
+**(Step 01) Install batchScratcher and add to path**
 Open a terminal and run:
 
 ```bash
@@ -34,6 +44,8 @@ git clone https://github.com/ejduwell/batchScratcher.git
 addpath(genpath('~/Documents/MATLAB/batchScratcher'));
 savepath;
 ```
+
+**(Step 02) Set up SSH keys**
 
 ## Usage
 
