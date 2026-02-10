@@ -190,8 +190,30 @@ disp(" ");
         disp("Running main batch job command:")
         disp(cmdStr);
         
+        try
         % evaluate the command string for main function/script to run it
-        eval(cmdStr);           
+        eval(cmdStr);
+        catch ME
+        % if the main function/script fails, capture/report the error such
+        % that it's visible in the command window output log for debugging 
+        % purposes 
+        disp(" ");
+        disp("!!!!YOUR JOB TERMINATED DUE TO AN ERROR!!!!");
+        disp(" ");
+        disp("The error command line output is displayed below:");
+        disp("------------------------------------------------------------");
+        disp("Error Message:");
+        disp(ME.message);
+        disp("Identifier:");
+        disp(ME.identifier);
+        disp("Full contents of error stack:");
+        for i = 1:numel(ME.stack)
+            disp(ME.stack(i));
+        end
+        disp("------------------------------------------------------------");
+        disp("Happy debugging...");
+        disp(" ");
+        end
 
         % get the date/time at the end of the job and echo it out on the
         % command line to document in diary/log
