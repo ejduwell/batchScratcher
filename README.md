@@ -284,5 +284,34 @@ Or by hitting the green 'Run' button at the top of the Matlab editor window...
 - Luckily, I also developed a Matlab package for doing just that called: [pipeCleaner](https://github.com/ejduwell/pipeCleaner)
 - Click on the link above for full details, but in short, pipeCleaner automatically finds all of the Matlab code required to run a particular script/function and copies/organizes it neatly under a single project directory.
 
+**2) batchScratcher automatically logs the specific options you use to generate the mirrored copy of your project directory in a file called README.txt**
+- rxivMatlabCode_v5.sh, the bash function that ultimately handles creating the copy of your project directory mirrored to the cluster automatically saves the options used in a file called README.txt
+- This logs the original local project folder being compressed, the specific filetypes included in the copy, and other parameters. Heres an example from my project below:
+```
+This directory was created by the bash script 'rxivMatlabCode_v5.sh' (written by E.J. Duwell, PhD).
+It contains an archived copy of content from:
+  /home/eduwell/SynologyDrive/projects/revCorrStimFMRI
+
+Included file extensions:
+  .m
+  .sh
+  .lt
+  .1D
+
+Additionally included individual files (relative to src_dir):
+  matlab/fmriAnalysis/revCorrFMRI_Regrsrz_Take07_ERaves/SWW_revCorrFMRI_Regrsrz_Take07_ERaves.mat
+
+Ignored subdirectories: (none)
+
+Compression (--compress): 1
+Use pigz (--pigz): 1
+pigz CPUs (-p): 16
+
+Created on:
+  Tue Feb 10 01:13:15 PM CST 2026
+
+```
+- This is stored in the 'matlabCodeRxiv' directory which encloses the project directory on the cluster and in the local copy stored under batchScratcher/mirror2cluster
+
 
 ---
