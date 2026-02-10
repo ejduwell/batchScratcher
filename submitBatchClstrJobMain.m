@@ -94,7 +94,7 @@ jobIn.pullDownCPUs=16; % number of cpus for compression/pulling down data
 jobIn.pullDown.CleanRemoteTar=true; % if true, will clean up/remove the remote tar.gz copy after compression/transfer to local machine
 jobIn.pullDown.CleanRemoteJob=true; % if true, will clean up temp directory generated remotely during compression
 jobIn.pullDown.CleanLocalTar=true; % if true, will clean up/remove local tar.gz copy pulled down from remote cluster after extracting it's contents
-jobIn.pullDown.rmRemoteDir=true; % if true, will completely remove the temporary subdirectory generated remotely for running this job after transfering it to the local machine
+jobIn.pullDown.rmRemoteDir=true; % if true, will completely remove the temporary subdirectory generated remotely in the cluster scratch for running this job after transfering it to the local machine
 %--------------------------------------------------------------------------
 
 %% Run submitBatchClstrJob_v1 to submit batch job
