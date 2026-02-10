@@ -84,12 +84,17 @@ jobIn.mainFcn.nFcnOutputs=0; % number of function inputs
 %--------------------------------------------------------------------------
 
 % parameters for pulling remote data on cluster back to local machine
+% (Note: this final compression/data transfer back to the local machine
+% is run as an additional sbatch slurm job at the end after running the matlab
+% routine submitted to enable the ability to use pigz/multiple cpus to compress
+% and make this run a lot faster...)
 %--------------------------------------------------------------------------
-jobIn.pullDownTimeStr="00-01:00:00";
-jobIn.pullDownCPUs=16;
-jobIn.pullDown.CleanRemoteTar=true;
-jobIn.pullDown.CleanRemoteJob=true;
-jobIn.pullDown.CleanLocalTar=true;
+jobIn.pullDownTimeStr="00-01:00:00"; % time alloted for compressing/pulling down
+jobIn.pullDownCPUs=16; % number of cpus for compression/pulling down data
+jobIn.pullDown.CleanRemoteTar=true; % if true, will clean up/remove the remote tar.gz copy after compression/transfer to local machine
+jobIn.pullDown.CleanRemoteJob=true; % if true, will clean up temp directory generated remotely during compression
+jobIn.pullDown.CleanLocalTar=true; % if true, will clean up/remove local tar.gz copy pulled down from remote cluster after extracting it's contents
+jobIn.pullDown.rmRemoteDir=true; % if true, will completely remove the temporary subdirectory generated remotely for running this job after transfering it to the local machine
 %--------------------------------------------------------------------------
 
 %% Run submitBatchClstrJob_v1 to submit batch job
