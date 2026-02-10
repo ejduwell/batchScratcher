@@ -147,7 +147,7 @@ Installation/setup is now complete and **batchScratcher** should be ready to use
 | `rxivMatlabCode_v5.sh`     | Bash function called by 'rxivMatlabPrjctDir4RemoteJob.m' for preparing compressed copies of a local project directory. Allows subselection of files in specific sub-directories and/or particular filetypes while maintaining overall directory structure                |
 | `pushTarGzToCluster_v2.m`     | Matlab function that issues bash commands to push the compressed local copy of the project directory to the remote cluster's scratch.              |
 | `pullRemoteDirTarSlurm_v1.m`     | Matlab wrapper function for 'pull_remote_dir_tar_slurm.sh' that compresses remote directory on cluster when job is done and pulls data back to local machine.              |
-| `pull_remote_dir_tar_slurm.sh`     | Bash function called by 'pullRemoteDirTarSlurm_v1.m' for preparing and pulling compressed copies of a remote project directory on cluster after the job is done.                |
+| `pull_remote_dir_tar_slurm.sh`     | Bash function called by 'pullRemoteDirTarSlurm_v1.m' for preparing and pulling compressed copies of a remote project directory on cluster, and cleaning up after the job is done.                |
 | `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
 
 
