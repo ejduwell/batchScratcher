@@ -400,5 +400,9 @@ Job End Time:
 Total Job Duration:
    00:00:10
 ```
-  
+**4) There is nothing sacred about the original copy of submitBatchClstrJobMain.m Feel free to make copies for various projects/jobs etc..**
+- It may be useful to make copies of 'submitBatchClstrJobMain.m' for different projects/pipelines.
+- That way you don't need to write over the parameters set for one pipeline to submit another one (which would be silly and annoying).
+- Just make sure you give each a unique name like submitBatchClstrJobMain_coolProject1.m, submitBatchClstrJobMain_coolProject2.m, etc..
+
 ---
