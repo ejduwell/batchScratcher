@@ -276,4 +276,13 @@ Or by hitting the green 'Run' button at the top of the Matlab editor window...
 
 ## Notes and Helpful Tips:
 
+1) Make sure that all code/data required to run your job are stored under a single parent project directory.
+- **batchScratcher** assumes implicitly that all of the code and data necessary to run the batch job is all contained within a single parent directory on your local machine.
+- This directory is the one you specify as "jobIn.prjctDirCpyPars.baseDir" in the parameter section of 'submitBatchClstrJobMain.m'
+- If you're like me and tend to recycle code/functions from old projects, your project's code may intitially be distributed haphazardly across multiple directories all over your machine like Johnny Appleseed...
+- If that is the case, you will need to copy/move all of the code necessary for your job to run under a single directory and point "jobIn.prjctDirCpyPars.baseDir" to that directory in 'submitBatchClstrJobMain.m' prior to submitting your job.
+- Luckily, I also developed a Matlab package for doing just that called: [pipeCleaner](https://github.com/ejduwell/pipeCleaner)
+- Click on the link above for full details, but in short, pipeCleaner automatically finds all of the Matlab code required to run a particular script/function and copies/organizes it neatly under a single project directory.
+
+
 ---
