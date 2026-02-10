@@ -107,7 +107,7 @@ If the ssh key setup above worked, you should now no longer be prompted for a pa
 
 **(Step 03) Create Directory in Remote Cluster Scratch for Running Batch Jobs:**
 
-Open a terminal window, log into the remote cluster, and navigate to the location where you want to run your batch jobs 
+Open a terminal window, log into the remote cluster, and navigate to the location in /scratch where you want to run your batch jobs 
 ```bash
 # Log into remote cluster
 ssh username@login-hpc.cluster.hostname.edu
