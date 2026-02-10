@@ -187,7 +187,8 @@ jobIn.prjctDirCpyPars.outDirBase=strcat(projDirPath,"/mirror2cluster/",tmpMirror
 % specify set of extensions for filetypes you want to be included in the
 % compressed copy of the project dir pushed to the cluster:
 jobIn.prjctDirCpyPars.fileExtnz={".m",".sh",".lt",".1D"};
-% specify files to include regardless of whether their extension is specified in jobIn.prjctDirCpyPars.fileExtnz
+% specify individual files to include regardless of whether their extension 
+% is specified in jobIn.prjctDirCpyPars.fileExtnz
 jobIn.prjctDirCpyPars.indFiles={ ...
     "path/to/your/individalFileToInclude.ext", ...
     "path/to/another/individalFileToInclude.ext", ...
@@ -248,12 +249,18 @@ jobIn.mainFcn.nFcnOutputs=0; % number of function inputs
 %--------------------------------------------------------------------------
 
 % parameters for pulling remote data on cluster back to local machine
+% (Note: this final compression/data transfer back to the local machine
+% is run as an additional sbatch slurm job at the end after running the matlab
+% routine submitted to enable the ability to use pigz/multiple cpus to compress
+% and make this run a lot faster...)
 %--------------------------------------------------------------------------
-jobIn.pullDownTimeStr="00-01:00:00";
-jobIn.pullDownCPUs=16;
-jobIn.pullDown.CleanRemoteTar=true;
-jobIn.pullDown.CleanRemoteJob=true;
-jobIn.pullDown.CleanLocalTar=true;
+jobIn.pullDownTimeStr="00-01:00:00"; % time alloted for compressing/pulling down
+jobIn.pullDownCPUs=16; % number of cpus for compression/pulling down data
+jobIn.pullDown.CleanRemoteTar=true; % if true, will clean up/remove the remote tar.gz copy after compression/transfer to local machine
+jobIn.pullDown.CleanRemoteJob=true; % if true, will clean up temp directory generated remotely during compression
+jobIn.pullDown.CleanLocalTar=true; % if true, will clean up/remove local tar.gz copy pulled down from remote cluster after extracting it's contents
+jobIn.pullDown.rmRemoteDir=true; % if true, will completely remove the temporary subdirectory generated remotely in the cluster 
+                                 % scratch for running this job after transfering it to the local machine
 %--------------------------------------------------------------------------
 
 
