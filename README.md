@@ -134,6 +134,7 @@ Open 'submitBatchClstrJobMain.m' in Matlab and set 'jobIn.mainClusterPath' equal
 % (i.e. paste the pwd command output copied above)
 jobIn.mainClusterPath="/scratch/dir/path/output/from/pwd/command/above"
 ```
+Installation/setup is now complete and **batchScratcher** should be ready to use...
 
 
 ## A brief list and overview of important files & folders:
