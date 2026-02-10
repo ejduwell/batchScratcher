@@ -319,4 +319,86 @@ Created on:
 - The "##-##-####-######" numbers in the filename encode the date and time the job output directory was pushed back to your local machine to the second.
 - The job start time, end time, and duration are also always included within this log file.
 - This file can be very useful for debugging purposes. Its also a nice way to see whats going on while the job is still running remotely (it's updated in real time while the job runs...)
+- If your job fails due to an error, **batchScratcher** captures the error and reports the full stack of error info including the files and line numbers that caused the errors.
+- For example, here is the output from when I intentionally ran a bogus job script containing lines I knew would throw an error:
+```
+ 
+Job Start Time:
+   10-Feb-2026 17:13:32
+
+ 
+Path to this job's mirrored directory on cluster:
+/scratch/g/agreenberg/eduwell/projects/matlabBatchScratch/matlabCodeRxiv_02-10-2026-170849/matlabCodeRxiv/revCorrStimFMRI
+ 
+Running main batch job command:
+testScript2MakeError
+ 
+Sup Yo! Ima bout to run a function that doesn't exist with variables that don't exist to generate an error...
+Here We Go!
+ 
+!!!!YOUR JOB TERMINATED DUE TO AN ERROR!!!!
+ 
+The error command line output is displayed below:
+------------------------------------------------------------
+Error Message:
+Unrecognized function or variable 'bogus'.
+Identifier:
+MATLAB:UndefinedFunction
+Full contents of error stack:
+    file: '/scratch/g/agreenberg/eduwell/projects/matlabBatchScratch/matlabCodeRxiv_02-10-2026-170849/matlabCodeRxiv/revCorrStimFMRI/matlab/fmriAnalysis/testScript2MakeError.m'
+    name: 'testScript2MakeError'
+    line: 5
+
+    file: '/tmp/tp46839862_1a0d_4a4d_859a_e3ebf1cfc588rp3695460/a/tpcc657d79_a16d_4209_8c21_007234be59a0/submitBatchClstrJob_v1.m'
+    name: 'submitBatchClstrJob_v1/runAsBatchOnCluster'
+    line: 195
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/cluster/+parallel/+internal/+cluster/executeFunction.m'
+    name: 'executeFunction'
+    line: 31
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/cluster/+parallel/+internal/+evaluator/evaluateWithNoErrors.m'
+    name: 'evaluateWithNoErrors'
+    line: 16
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/cluster/+parallel/+internal/+evaluator/CJSStreamingEvaluator.m'
+    name: 'CJSStreamingEvaluator.evaluate'
+    line: 28
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/parallel/private/dctEvaluateTask.m'
+    name: 'iEvaluateTask/nEvaluateTask'
+    line: 316
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/parallel/private/dctEvaluateTask.m'
+    name: 'iEvaluateTask'
+    line: 157
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/parallel/private/dctEvaluateTask.m'
+    name: 'dctEvaluateTask'
+    line: 83
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/parallel/distcomp_evaluate_filetask_core.m'
+    name: 'iDoTask'
+    line: 158
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/parallel/distcomp_evaluate_filetask_core.m'
+    name: 'distcomp_evaluate_filetask_core'
+    line: 52
+
+    file: '/hpc/apps/matlab-parallel-server/R2025b/toolbox/parallel/parallel/distcomp_evaluate_filetask.m'
+    name: 'distcomp_evaluate_filetask'
+    line: 17
+
+------------------------------------------------------------
+Happy debugging...
+ 
+ 
+Job End Time:
+   10-Feb-2026 17:13:43
+
+ 
+Total Job Duration:
+   00:00:10
+```
+  
 ---
