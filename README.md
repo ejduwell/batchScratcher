@@ -313,5 +313,9 @@ Created on:
 ```
 - This is stored in the 'matlabCodeRxiv' directory which encloses the project directory on the cluster and in the local copy stored under batchScratcher/mirror2cluster
 
+**3) batchScratcher also automatically saves all Matlab Command Window output from the batch job in the uppermost level of the project directory copy**
+- It will be saved in a text file named with the following convention: matlabCodeRxiv_##-##-####-######_cmdWinLog
+- The "##-##-####-######" numbers in the filename encode the date and time the job was run to the second.
+- The job start time, end time, and duration are also always included within this log file.
 
 ---
