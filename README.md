@@ -318,5 +318,5 @@ Created on:
 - It will be saved in a text file named with the following convention: matlabCodeRxiv_##-##-####-######_cmdWinLog
 - The "##-##-####-######" numbers in the filename encode the date and time the job output directory was pushed back to your local machine to the second.
 - The job start time, end time, and duration are also always included within this log file.
-
+- This file can be very useful for debugging purposes. Its also a nice way to see whats going on while the job is still running remotely (it's updated in real time while the job runs...)
 ---
