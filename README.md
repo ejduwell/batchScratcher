@@ -228,7 +228,7 @@ jobIn.pullDown.CleanLocalTar=true;
 ```
 ### 2) Run submitBatchClstrJobMain.m to submit the job:
 
-Either by running the following in the command line:
+Either by running the following in the Matlab Command Window:
 ```matlab
 submitBatchClstrJobMain
 ```
