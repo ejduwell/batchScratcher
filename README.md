@@ -299,7 +299,7 @@ Included file extensions:
   .1D
 
 Additionally included individual files (relative to src_dir):
-  matlab/fmriAnalysis/revCorrFMRI_Regrsrz_Take07_ERaves/SWW_revCorrFMRI_Regrsrz_Take07_ERaves.mat
+  matlab/fmriAnalysis/revCorrFMRI_Regrsrz_Take07_ERaves/046_revCorrFMRI_Regrsrz_Take07_ERaves.mat
 
 Ignored subdirectories: (none)
 
