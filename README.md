@@ -274,5 +274,6 @@ submitBatchClstrJobMain
 
 Or by hitting the green 'Run' button at the top of the Matlab editor window...
 
+## Notes and Helpful Tips:
 
 ---
