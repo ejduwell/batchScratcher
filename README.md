@@ -105,6 +105,37 @@ ssh username@login-hpc.cluster.hostname.edu
 ```
 If the ssh key setup above worked, you should now no longer be prompted for a password to login to the cluster.
 
+**(Step 03) Create Directory in Remote Cluster Scratch for Running Batch Jobs:**
+
+Open a terminal window and log into the remote cluster and navigate to the location where you want to run your batch jobs 
+```bash
+# Log into remote cluster
+ssh username@login-hpc.cluster.hostname.edu
+# Navigate to location in scratch where you want to create parent directory for running Matlab batch jobs
+cd /scratch/path/to/desired/location
+```
+
+Create directory to house Matlab batch jobs running remotely on scratch
+```bash
+# Create directory
+mkdir matlabBatchScratch
+```
+Copy the full path location of the directory you just created
+```bash
+# Enter the directory
+cd matlabBatchScratch
+# Run 'pwd' command to get the full path to matlabBatchScratch
+pwd
+# (copy the output)
+```
+Open 'submitBatchClstrJobMain.m' in Matlab and set 'jobIn.mainClusterPath' equal to the directory path just created/copied
+```matlab
+% set jobIn.mainClusterPath equal to the directory path just created
+% (i.e. paste the pwd command output copied above)
+jobIn.mainClusterPath="/scratch/dir/path/output/from/pwd/command/above"
+```
+
+
 ## A brief list and overview of important files & folders:
 
 | File/Folder            | Description                                       |
