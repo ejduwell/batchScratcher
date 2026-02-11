@@ -1,5 +1,5 @@
 # batchScratcher
-Repository of functions that automate pushing data from your local machine to the scratch folder on a remote SLURM cluster with MATLAB Parallel Server installed, running remote 'batch' jobs in the cluster's scratch directory, retrieving the data, and cleaning up the remnants of the job in cluster's scratch when its done.
+Repository of functions that automate pushing data from your local machine to the scratch folder on a remote SLURM cluster with MATLAB Parallel Server installed, running remote 'batch' jobs in the cluster's scratch directory, retrieving the data, and cleaning up the remnants of the job in the cluster's scratch when its done.
 
 ## Quick Links to Sections:
 
