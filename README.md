@@ -17,13 +17,13 @@ Repository of functions that automate pushing data from your local machine to th
 
 ## Key Functionalities:
 
-**batchScratcher** is designed to make submitting *MATLAB remote batch jobs on a SLURM cluster* intuitive, flexible, and powerful — without requiring users to rewrite or restructure their existing project code. It wraps many of the typical hassles of cluster workflows into clear, automated steps.
+**batchScratcher** is designed to make submitting *MATLAB remote batch jobs on a SLURM cluster* intuitive, flexible, and powerful — without requiring users to rewrite or restructure their existing project code. It automates many of the typical hassles of cluster workflows into clear, simple steps.
 
 ### 📦 Project Transfer Automation
 - **Mirror entire local project directory to cluster scratch** before execution — including folder structure — rather than forcing users to manually specify every file and dependency. This avoids the fragile, error-prone process of individually listing required files for a batch job.
 - Allows **sub-selection of files and folders** (e.g., by extension or ignore patterns) so only necessary code/data are transferred, reducing transfer time and overhead.
 
-### 🚀 Remote Batch Submission with SLURM Integration
+### 🚀 Remote Batch Submission with Intuitive SLURM Options
 - Automates **SLURM header construction** by letting users specify resources like CPUs, memory, GPUs, and time limits through intuitive parameters — eliminating the need to manually concatenate header flags into a single string.
 - Submits MATLAB batch jobs using a specified cluster profile while handling SSH and SLURM integration details under the hood.
 - Makes it straightforward to request GPUs or multi-CPU resources for jobs that internally use `parpool`, `parfor`, or other parallel features.
