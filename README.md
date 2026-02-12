@@ -14,6 +14,39 @@ Repository of functions that automate pushing data from your local machine to th
 
 **batchScratcher** is a MATLAB-based project developed to provide a general-purpose, standardized, (hopefully) more intuitive framework for submitting 'batch' jobs to remote clusters running Matlab Parallel Server. This repository contains code that automates compressing a local copy of a project folder, pushing that project to the remote cluster's scratch, running a specified script as a 'batch' job, retrieving the data back to your local machine, and cleaning up the remnants of the job in the cluster's scratch when its done.
 
+## Key Functionalities:
+
+**batchScratcher** is designed to make submitting *MATLAB remote batch jobs on a SLURM cluster* intuitive, flexible, and powerful — without requiring users to rewrite or restructure their existing project code. It wraps many of the typical hassles of cluster workflows into clear, automated steps.
+
+### 📦 Project Transfer Automation
+- **Mirror entire local project directory to cluster scratch** before execution — including folder structure — rather than forcing users to manually specify every file and dependency. This avoids the fragile, error-prone process of individually listing required files for a batch job.
+- Allows **sub-selection of files and folders** (e.g., by extension or ignore patterns) so only necessary code/data are transferred, reducing transfer time and overhead.
+
+### 🚀 Remote Batch Submission with SLURM Integration
+- Automates **SLURM header construction** by letting users specify resources like CPUs, memory, GPUs, and time limits through intuitive parameters — eliminating the need to manually concatenate header flags into a single string.
+- Submits MATLAB batch jobs using a specified cluster profile while handling SSH and SLURM integration details under the hood.
+- Makes it straightforward to request GPUs or multi-CPU resources for jobs that internally use `parpool`, `parfor`, or other parallel features.
+
+### 🔄 Output Management and Retrieval
+- Automatically **compresses output on the cluster**, transfers it back to the local machine, and **syncs results into the original project directory**, so outputs appear exactly where expected.
+- Provides options to **clean up remote scratch directories** and temporary archives after job completion to maintain organized storage.
+
+### 🧠 Intuitive Path and Dependency Handling
+- Because the full project directory is mirrored before execution, users do not need to refactor code to accommodate remote execution.
+- Existing paths, subfolders, and dependencies resolve on the cluster just as they do locally — minimizing debugging related to missing files.
+- Enables users to run a local project pipeline on a remote cluster with minimal or no changes to existing code.
+
+### 🧪 Debugging and Logging Enhancements
+- Captures and returns batch output and error logs into readable files within the project directory.
+- Reduces the need to manually inspect SLURM output files or navigate remote scratch directories for debugging.
+
+### 🔧 Power User Controls
+For more experienced users, batchScratcher also provides:
+- Fine-grained control over SLURM resource requests (e.g., task counts, memory per CPU, GPU flags, wall time).
+- Flexible inclusion/exclusion filtering for complex project structures.
+- The ability to integrate into advanced SLURM configurations while maintaining a clean, automated workflow.
+
+
 ## Dependencies:
 
 - Must be running either a Unix/Linux-based OS or macOS
