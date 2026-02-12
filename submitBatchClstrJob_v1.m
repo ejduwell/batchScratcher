@@ -133,7 +133,7 @@ bashFcnPath=strcat(batchScrathProjDir,"/pull_remote_dir_tar_slurm.sh");
 disp(" ");
 disp("Pulling data from remote cluster back to local machine...")
 strtTmp=datetime;
-[st,out,exdir,tar] = pullRemoteDirTarSlurm_v1( ...
+[st,out,exdir,tarOutPath] = pullRemoteDirTarSlurm_v1( ...
   jobIn.clusterHostname, ...
   remoteWrapperDir, ...
   tgzPath, ...
@@ -146,10 +146,115 @@ strtTmp=datetime;
   'CleanRemoteJob',jobIn.pullDown.CleanRemoteJob, ...
   'CleanLocalTar',jobIn.pullDown.CleanLocalTar);
 
+% split off the top line of 'exdir' which contains the full path to the
+% local output copy pulled down from the cluster:
+%--------------------------------------------------------------------------
+exdirLines=splitlines(exdir);
+path2LclOutCpy=string(exdirLines{1,1});
+path2LclOutTarCpy=strcat(path2LclOutCpy,".tar.gz");
+%--------------------------------------------------------------------------
+% use ls -d command with wildcards to locate the main project directory top
+% level buried within the outer directories surrounding it from the tar.gz
+% compression steps:
+%--------------------------------------------------------------------------
+% build ls command string:
+lsCmdStr=strcat("ls -d ",path2LclOutCpy,"/*/*/*/");
+% excecute it as a shell command via system:
+[lsCmdStatus,lsCmdOut] = system(lsCmdStr);
+path2LclOutCpyMainDir=lsCmdOut(1:end-2); % cut off final slash...
+%--------------------------------------------------------------------------
+
 endTmp=datetime;
 durTmp=endTmp-strtTmp;
 disp("Finished pulling data from remote cluster back to local machine in:")
 disp(durTmp);
+
+%% Archive tar.gz output copy if requested
+
+if jobIn.rxivOutputTarCopy==1    
+    rxivOutDir=strcat(jobIn.prjctDirCpyPars.baseDir,"/",jobIn.rxivOutputCopyDir);
+    disp(" ");
+    disp("Moving compressed output directory tarball pulled from the cluster to local rxiv folder:");
+    disp(strcat("Compressed tarball from cluster: ",path2LclOutTarCpy));
+    disp(strcat("Local rxiv folder: ",rxivOutDir));
+    [status,msg,msgID] = mkdir(rxivOutDir); % make sure output rxiv directory exists..
+    % then move the file to the output rxiv directory
+    [status2,msg2,msgID2] = movefile(path2LclOutTarCpy,rxivOutDir);
+end
+
+%% Sync Local Output Directory Copy With Original and Clean-Up the Copy
+
+if jobIn.sync2origDir.syncOutCopy2Orig==1
+    startTmp=datetime;
+    disp(" ");
+    disp("Syncing output directory copy from cluster with the original project directory...");
+    disp("---------------------------------------------------------------------------------");
+    if jobIn.sync2origDir.dryRun==1
+        if jobIn.sync2origDir.rmDirCopy==1
+            [status, cmd, stdout, stderr] = syncDirCpy2MainDir(path2LclOutCpyMainDir, jobIn.prjctDirCpyPars.baseDir,'--dryRun','--rmDirCopy');
+            disp("Full bash shell command run for sync procedure:");
+            disp(cmd);
+            disp("Command line output:");
+            disp(stdout);
+            disp("Exit status:");
+            disp(status);
+            disp("Errors:");
+            disp(stderr);
+            % clean up mirror directory parent too located in
+            % batchScratcher/mirror2cluster
+            rmCmdStr=strcat("rm -rf ",jobIn.prjctDirCpyPars.outDirBase);
+            disp(" ");
+            disp("This is a dry run.")
+            disp("But in real run we would execute the following shell command to remove the parent directory in batchScratcher/mirror2cluster:");
+            disp(rmCmdStr);
+        else
+            [status, cmd, stdout, stderr] = syncDirCpy2MainDir(path2LclOutCpyMainDir, jobIn.prjctDirCpyPars.baseDir,'--dryRun');
+            disp("Full bash shell command run for sync procedure:");
+            disp(cmd);
+            disp("Command line output:");
+            disp(stdout);
+            disp("Exit status:");
+            disp(status);
+            disp("Errors:");
+            disp(stderr);            
+        end
+    else
+        if jobIn.sync2origDir.rmDirCopy==1
+            [status, cmd, stdout, stderr] = syncDirCpy2MainDir(path2LclOutCpyMainDir, jobIn.prjctDirCpyPars.baseDir,'--rmDirCopy');
+            disp("Full bash shell command run for sync procedure:");
+            disp(cmd);
+            disp("Command line output:");
+            disp(stdout);
+            disp("Exit status:");
+            disp(status);
+            disp("Errors:");
+            disp(stderr);
+            % clean up mirror directory parent too located in
+            % batchScratcher/mirror2cluster
+            disp(" ");
+            disp("Cleaning up/removing the following parent job mirror directory with the following shell command:")
+            rmCmdStr=strcat("rm -rf ",jobIn.prjctDirCpyPars.outDirBase);
+            disp(rmCmdStr);
+            system(rmCmdStr);            
+        else
+            [status, cmd, stdout, stderr] = syncDirCpy2MainDir(path2LclOutCpyMainDir, jobIn.prjctDirCpyPars.baseDir);
+            disp("Full bash shell command run for sync procedure:");
+            disp(cmd);
+            disp("Command line output:");
+            disp(stdout);
+            disp("Exit status:");
+            disp(status);
+            disp("Errors:");
+            disp(stderr);
+        end
+    end
+    endTmp=datetime;
+    durTmp=endTmp-startTmp;
+    disp("Sync procedure finished in:");
+    disp(durTmp);
+end
+
+%% Close up
 
 disp(" ");
 disp("Take care now! Bye Bye then!");
