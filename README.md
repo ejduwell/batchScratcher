@@ -262,8 +262,31 @@ jobIn.pullDown.CleanRemoteJob=true; % if true, will clean up temp directory gene
 jobIn.pullDown.CleanLocalTar=true; % if true, will clean up/remove local tar.gz copy pulled down from remote cluster after extracting it's contents
 jobIn.pullDown.rmRemoteDir=true; % if true, will completely remove the temporary subdirectory generated remotely in the cluster 
                                  % scratch for running this job after transfering it to the local machine
-%--------------------------------------------------------------------------
 
+% parameters for archiving the compressed output directory copy pulled down
+% from the cluster to your local machine after the job is finished.
+%--------------------------------------------------------------------------
+jobIn.rxivOutputTarCopy=1; % if 1, will save/archive the compressed copy of 
+                        % the output directory from the cluster by moving 
+                        % it (i.e. witn mv, not copy with cp) 
+                        % to a location on the local machine specified 
+                        % below by jobIn.rxivOutputCopyDir
+
+% specify output subdirectory to save archived copys of the output data 
+% when jobIn.rxivOutputTarCopy is on/1 (paths are assumed to be relative to 
+% your main project folder specified above as 
+% jobIn.prjctDirCpyPars.baseDir. If it doesn't exist it will be created):                        
+jobIn.rxivOutputCopyDir="dataRxiv";
+
+% NOTE: if jobIn.rxivOutputTarCopy==1, jobIn.pullDown.CleanLocalTar must be
+% turned off (set to false) such that there is a compressed copy to
+% save/archive. For this reason, the short routine below is in place to
+% ensure that whenever jobIn.rxivOutputCopy==1 
+% jobIn.pullDown.CleanLocalTar=false:
+if jobIn.rxivOutputTarCopy==1
+    jobIn.pullDown.CleanLocalTar=false;
+end
+%--------------------------------------------------------------------------
 
 ```
 ### 2) Run submitBatchClstrJobMain.m to submit the job:
