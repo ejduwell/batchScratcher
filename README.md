@@ -288,6 +288,37 @@ if jobIn.rxivOutputTarCopy==1
 end
 %--------------------------------------------------------------------------
 
+% parameters for syncing output copy of project directory pulled down from
+% cluster to the local batchScratcher/mirror2cluster temporary folder with 
+% the original project folder copy after running the job & removing the
+% local job output copy after syncing
+%--------------------------------------------------------------------------
+jobIn.sync2origDir.syncOutCopy2Orig=1; % if 1, will detect and sync new 
+                                       % and/or updated files present in 
+                                       % the output directory copy to the 
+                                       % original project directory on the 
+                                       % local machine. (if 0, will not)
+
+jobIn.sync2origDir.rmDirCopy=1;        % if 1, will remove the local output 
+                                       % directory copy after syncing
+                                       % (when/if syncing is turned on)
+                                       % (if 0, will not)
+
+jobIn.sync2origDir.dryRun=1;           % if 1, will do a "dry run" of the 
+                                       % rsync and directory removal where 
+                                       % the list of files/folders synced 
+                                       % and removed will be reported on 
+                                       % the commandline but the actual 
+                                       % commands are not actually run.
+                                       % (this feature is in places for
+                                       % situations where the user may not
+                                       % be sure if the settings are set to
+                                       % their desired values/to make sure
+                                       % directories/files they want to 
+                                       % keep aren't destroyed by accident 
+                                       % before running for real)
+%--------------------------------------------------------------------------
+
 ```
 ### 2) Run submitBatchClstrJobMain.m to submit the job:
 
