@@ -4,6 +4,7 @@ Repository of functions that automate pushing data from your local machine to th
 ## Quick Links to Sections:
 
 - [Overview](https://github.com/ejduwell/batchScratcher/blob/main/README.md#overview)
+- [Key Functionalities](https://github.com/ejduwell/batchScratcher/blob/main/README.md#key-functionalities)
 - [Dependencies](https://github.com/ejduwell/batchScratcher/blob/main/README.md#dependencies)
 - [Installation](https://github.com/ejduwell/batchScratcher/blob/main/README.md#installation)
 - [A brief list and overview of important files & folders](https://github.com/ejduwell/batchScratcher/blob/main/README.md#a-brief-list-and-overview-of-important-files--folders)
