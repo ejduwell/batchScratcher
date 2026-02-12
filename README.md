@@ -24,7 +24,7 @@ Repository of functions that automate pushing data from your local machine to th
 - Allows **sub-selection of files and folders** (e.g., by extension or ignore patterns) so only necessary code/data are transferred, reducing transfer time and overhead.
 
 ### 🚀 Remote Batch Submission with Intuitive SLURM Options
-- Automates **SLURM header construction** by letting users specify resources like CPUs, memory, GPUs, and time limits through intuitive parameters — eliminating the need to manually concatenate header flags into a single string.
+- Automates **SLURM header construction** by letting users specify resources like CPUs, memory, GPUs, and time limits through intuitive parameters — eliminating the need to manually concatenate header flags into one long space-separated string.
 - Submits MATLAB batch jobs using a specified cluster profile while handling SSH and SLURM integration details under the hood.
 - Makes it straightforward to request GPUs or multi-CPU resources for jobs that internally use `parpool`, `parfor`, or other parallel features.
 
@@ -38,7 +38,7 @@ Repository of functions that automate pushing data from your local machine to th
 - Enables users to run a local project pipeline on a remote cluster with minimal or no changes to existing code.
 
 ### 🧪 Debugging and Logging Enhancements
-- Captures and returns batch output and error logs into readable files within the project directory.
+- Automatically captures and returns all Matlab Command Window output and error logs from the remote batch job into readable files within the project directory.
 - Reduces the need to manually inspect SLURM output files or navigate remote scratch directories for debugging.
 
 ### 🔧 Power User Controls
@@ -46,7 +46,6 @@ For more experienced users, batchScratcher also provides:
 - Fine-grained control over SLURM resource requests (e.g., task counts, memory per CPU, GPU flags, wall time).
 - Flexible inclusion/exclusion filtering for complex project structures.
 - The ability to integrate into advanced SLURM configurations while maintaining a clean, automated workflow.
-
 
 ## Dependencies:
 
