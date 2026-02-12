@@ -188,7 +188,6 @@ Installation/setup is now complete and **batchScratcher** should be ready to use
 | `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
 
 
-
 ## Usage:
 
 To use this code:
@@ -266,6 +265,11 @@ jobIn.adnlArgs.timeInfo='--time=00-01:00:00'; % string describing time reserved 
 jobIn.adnlArgs.memPerCpu='--mem-per-cpu=7gb'; % memory per cpu
 jobIn.adnlArgs.ntasks='--ntasks=1'; % number of tasks
 jobIn.adnlArgs.cpusPerTask="--cpus-per-task=32";  % number of cpus per task
+% Note: feel free to alter these to whatever is required for your
+% particular job. You can also remove ones you don't need or add as many
+% more SLURM headers as you want.
+% ** Just make sure that they are specified as jobIn.adnlArgs.() subfields!**
+% ** Any/All field strings in jobIn.adnlArgs will be interpreted as SLURM headers **
 %--------------------------------------------------------------------------
 
 % specify cluster hostname/username info..
