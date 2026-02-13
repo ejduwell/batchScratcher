@@ -501,7 +501,7 @@ Total Job Duration:
 #### 5) Ethan's strong recommendation is to always make the main Matlab .m file submitted for the batch job (i.e. jobIn.mainFcn.fname="yourJobMfile") a 'script' with the 'function' syntax present but no input or output variables
 - What on earth do I mean by this and why?:
   - It may sound like I'm delving into into minutia, but I promise this is relavant.. there are fine distinctions between 'scripts' and 'functions' in Matlab:
-    - 'functions' begin with 'function [outputVariables]=yourJobMfile(inputVariables)' where yourJobMfile is the function's name and outputVariables/inputVariables are your input and output variables. they also end in 'end' to specify the end of the function.
+    - 'functions' begin with 'function [outputVariables]=yourJobMfile(inputVariables)' where yourJobMfile is the function's name and outputVariables/inputVariables are your input and output variables. They also end in 'end' to specify the end of the function.
     - 'scripts' do not begin with this syntax
     - The key/important difference here pertains to the 'scope' of variables created in a script vs. a function.
       - Variables set/defined in a function only exist within the scope of the function and do not persist in your workspace after the function is done except for those exported as output variables.
@@ -510,7 +510,8 @@ Total Job Duration:
     - Simply surrounding the script with the empty function syntax without the input/output variables allows the thing to work just like a 'script' only the scope of variables is limited to within the function boundaries.
     - This means no new variables are ever created in the 'workspace' during the job and you avoid this major-league annoyance. 
 
-#### 6) Related to (5) above: You may notice I included provisions to handle input/output variables in the parameters section. However, I still stand by what I recommend in (5)
+#### 6) Related to (5) above: You may notice I included provisions to handle input/output variables in the parameters section. 
+  *However, I still stand by what I recommend in (5)*
 - I included the parameters to handle input/output variables for a batch job 'function'. However, my experience is that this (like many other aspects of 'batch' jobs in Matlab) is fraught with annoyances.
 - To start, you need to specify each and every input and output variable, the total number of each that the job should create.
 - In my experience, this is a doom-hole of wasted time and frustration full of random errors that are very difficult to chase down and debug.
