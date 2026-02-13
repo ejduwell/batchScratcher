@@ -63,13 +63,13 @@ For more experienced users, batchScratcher also provides:
 
 ### macOS and Linux
 
-**(Step 00) If you are an MCW user, you must first set up access to MATLAB Parallel Server:**
+#### (Step 00) If you are an MCW user, you must first set up access to MATLAB Parallel Server:
 
 (I presume a similar procedure will likely be in place at other institutions)
 - If you have not done so already, follow the instructions provided [HERE](https://docs.rcc.mcw.edu/software/matlab/)
 - Then proceed with the instructions below.
 
-**(Step 01) Install batchScratcher and add to path:**
+#### (Step 01) Install batchScratcher and add to path:
 
 Open a terminal and run:
 
@@ -87,7 +87,7 @@ addpath(genpath('~/Documents/MATLAB/batchScratcher'));
 savepath;
 ```
 
-**(Step 02) Set up SSH keys:**
+#### (Step 02) Set up SSH keys:
 
 Open a terminal and run the following (replace email place-holder with your own):
 
