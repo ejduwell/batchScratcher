@@ -37,7 +37,7 @@ Repository of functions that automate pushing data from your local machine to th
 - Existing paths, subfolders, and dependencies resolve on the cluster just as they do locally — minimizing debugging related to missing files.
 - Enables users to run a local project pipeline on a remote cluster with minimal or no changes to existing code.
 
-### 🧪 Debugging and Logging Enhancements
+### :beetle: Debugging and Logging Enhancements
 - Automatically captures and returns all Matlab Command Window output and error logs from the remote batch job into readable files within the project directory.
 - Reduces the need to manually inspect SLURM output files or navigate remote scratch directories for debugging.
 
