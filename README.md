@@ -531,8 +531,11 @@ Total Job Duration:
   - 'which' finds the full path to 'submitBatchClstrJobMain.m' on whatever machine it's run and 'fileparts' splits off just the directory portion of the path/cuts off the filename and extension.
   - Because I stored 'submitBatchClstrJobMain.m' in the batchScratcher project directory, 'projDirPath' will therefore always give you the full path to where the project directory is installed no matter which computer its installed on and no matter where on that computer it is installed so long as it is somewhere on the path.
   - My strong recommendation is to use this trick at the top of your job script (specified as jobIn.mainFcn.fname) replacing 'submitBatchClstrJobMain.m' with whatever your script's file name happens to be.
-  - Then, later in your script, set any and all path variables relative to your project root directory name using 'strcat' to concatenate 'projDirPath' on for the full path:
-    - Example: path2File=strcat(projDirPath,"/someSubDirInsideYourProjectDir/filename.ext");
+  - Then, later in your script, set any and all path variables relative to your project root directory name using 'strcat' to concatenate 'projDirPath' on for the full path.
+    - For Example:
+      ```matlab
+      path2File=strcat(projDirPath,"/someSubDirInsideYourProjectDir/filename.ext");
+      ```
 - This trick will allow you to avoid the path-related-error-hole-of-doom which is easy to fall into and waste hours of time while running/debugging jobs remotely.
 - However, it is also a good habit to get into in any/all Matlab projects, even if you have no plans to run them remotely using **batchScratcher**.
 - This effectively allows whatever Matlab code you write to be copied anywhere onto anyones computer and still run without having to update a bajillion path variables based on where it happened to be copied/installed...
