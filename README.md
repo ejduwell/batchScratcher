@@ -370,7 +370,7 @@ Or by hitting the green 'Run' button at the top of the Matlab editor window...
 
 ## Notes and Helpful Tips:
 
-**1) Make sure that all code/data required to run your job are stored under a single parent project directory!**
+### 1) Make sure that all code/data required to run your job are stored under a single parent project directory!
 - **batchScratcher** assumes implicitly that all of the code and data necessary to run the batch job is contained within a single parent directory on your local machine.
 - This directory is the one you specify as "jobIn.prjctDirCpyPars.baseDir" in the parameter section of 'submitBatchClstrJobMain.m'
 - If you're like me and tend to recycle code/functions from old projects, your project's code may intitially be distributed haphazardly across multiple directories all over your machine like Johnny Appleseed...
@@ -407,7 +407,7 @@ Created on:
 ```
 - This is stored in the 'matlabCodeRxiv' directory which encloses the project directory on the cluster and in the local copy stored under batchScratcher/mirror2cluster
 
-**3) batchScratcher also automatically saves all Matlab Command Window output from the batch job in the uppermost level of the project directory copy**
+### 3) batchScratcher also automatically saves all Matlab Command Window output from the batch job in the uppermost level of the project directory copy
 - It will be saved in a text file named with the following convention: matlabCodeRxiv_##-##-####-######_cmdWinLog
 - The "##-##-####-######" numbers in the filename encode the date and time the job output directory was pushed back to your local machine to the second.
 - The job start time, end time, and duration are also always included within this log file.
@@ -493,9 +493,27 @@ Job End Time:
 Total Job Duration:
    00:00:10
 ```
-**4) There is nothing sacred about the original copy of submitBatchClstrJobMain.m Feel free to make copies for various projects/jobs etc..**
+### 4) There is nothing sacred about the original copy of submitBatchClstrJobMain.m Feel free to make copies for various projects/jobs etc..
 - It may be useful to make copies of 'submitBatchClstrJobMain.m' for different projects/pipelines.
 - That way you don't need to write over the parameters set for one pipeline to submit another one (which would be silly and annoying).
 - Just make sure you give each a unique name like submitBatchClstrJobMain_coolProject1.m, submitBatchClstrJobMain_coolProject2.m, etc..
 
+### 5) Ethan's strong recommendation is to always make the main Matlab .m file submitted for the batch job (i.e. jobIn.mainFcn.fname="yourJobMfile") a 'script' with the 'function' syntax present but no input or output variables
+- What on earth do I mean by this and why?:
+  - It may sound like I'm delving into into minutia, but I promise this is relavant.. there are fine distinctions between 'scripts' and 'functions' in Matlab:
+    - 'functions' begin with 'function [outputVariables]=yourJobMfile(inputVariables)' where yourJobMfile is the function's name and outputVariables/inputVariables are your input and output variables. they also end in 'end' to specify the end of the function.
+    - 'scripts' do not begin with this syntax
+    - The key/important difference here pertains to the 'scope' of variables created in a script vs. a function.
+      - Variables set/defined in a function only exist within the scope of the function and do not persist in your workspace after the function is done except for those exported as output variables.
+      - Variables set/defined in a script are simply dumped into the workspace and are available after the script is done until they are explicitly cleared.
+    - Why does this matter here?: I've found that remote batch jobs in Matlab are **extremely** finicky about variables created in the job. If you create a variable in the workspace it will give you an error something to the effect of "can't create variable in a static workspace" and kill your job.
+    - Simply surrounding the script with the empty function syntax without the input/output variables allows the thing to work just like a 'script' only the scope of variables is limited to within the function boundaries.
+    - This means no new variables are ever created in the 'workspace' during the job and you avoid this major-league annoyance. 
+
+### 6) Related to (5) above: You may notice I included provisions to handle input/output variables in the parameters section. However, I still stand by what I recommend in (5)
+- I included the parameters to handle input/output variables for a batch job 'function'. However, my experience is that this (like many other aspects of 'batch' jobs in Matlab) is fraught with annoyances.
+- To start, you need to specify each and every input and output variable, the total number of each that the job should create.
+- In my experience, this is a doom-hole of wasted time and frustration full of random errors that are very difficult to chase down and debug.
+- Conversely, a very straight-forward, scaleable, and easy alternative is to skip input/output variables all together and instead simply save any/all output variables to disk in a .mat (or whatever your preferred format) somewhere within the project directory at the end of the job script.
+- This, in turn, will automatically get pulled down from the cluster to your local machine by the **batchScratcher** functions.
 ---
