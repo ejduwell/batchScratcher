@@ -529,7 +529,7 @@ Total Job Duration:
     [projDirPath,~,~]=fileparts(which("submitBatchClstrJobMain.m"));
     ```
   - 'which' finds the full path to 'submitBatchClstrJobMain.m' on whatever machine it's run and 'fileparts' splits off just the directory portion of the path/cuts off the filename and extension.
-  - Because 'submitBatchClstrJobMain.m' is in the project directory, 'projDirPath' will therefore always give you the full path to where the project directory is installed no matter which computer its installed on and no matter where on that computer it is installed so long as it is somewhere on the path.
+  - Because I stored 'submitBatchClstrJobMain.m' in the batchScratcher project directory, 'projDirPath' will therefore always give you the full path to where the project directory is installed no matter which computer its installed on and no matter where on that computer it is installed so long as it is somewhere on the path.
   - My strong recommendation is to use this trick at the top of your job script (specified as jobIn.mainFcn.fname) replacing 'submitBatchClstrJobMain.m' with whatever your script's file name happens to be.
   - Then, later in your script, set any and all path variables relative to your project root directory name using 'strcat' to concatenate 'projDirPath' on for the full path:
     - Example: path2File=strcat(projDirPath,"/someSubDirInsideYourProjectDir/filename.ext");
