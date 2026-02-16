@@ -52,7 +52,7 @@ For more experienced users, batchScratcher also provides:
 
 ### 🖥️ Explicit Support for Submitting Jobs Headlessly
 
-batchScratcher also includes dedicated features that make it easy to run MATLAB batch jobs **without any GUI**, directly from a terminal, script, or automated pipeline — ideal for users integrating Matlab cluster workflows into larger headless/scripted workflows.
+batchScratcher also includes dedicated features that make it easy to run MATLAB batch jobs **without any GUI**, directly from a terminal, script, or automated pipeline — ideal for users integrating MATLAB cluster workflows into larger headless/scripted workflows.
 
 - **Headless parcluster setup**  
   A dedicated script (`parClusterSetup4HeadlessJobs.m`) configures your MATLAB cluster profile so that jobs can be submitted without triggering GUI authentication prompts. This is critical for fully headless environments where no GUI is available.
