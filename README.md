@@ -178,6 +178,7 @@ jobIn.mainClusterPath="/scratch/dir/path/output/from/pwd/command/above";
 clstrProfile="HPC Cluster"; % cluster profile name string (i.e. like "HPC Cluster")
 localUserName="yourLocalUserName";
 ```
+
 - Then run parClusterSetup4HeadlessJobs.m either by hitting the green 'Run' button at the top of the editor GUI window or by running 'parClusterSetup4HeadlessJobs' in the Matlab Command Window:
 ```matlab
 parClusterSetup4HeadlessJobs
