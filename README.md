@@ -190,8 +190,6 @@ Installation/setup is now complete and **batchScratcher** should be ready to use
 | `runHeadlessMatlabJob.sh`     | Bash function called by 'runHeadlessMatlabJob_wrapper.m' that allows users to submit remote batch jobs 'headlessly' (i.e. without a matlab gui window open) from within a UNIX terminal.              |
 | `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
 
-parClusterSetup4HeadlessJobs.m
-
 ## Usage:
 
 To use this code:
