@@ -170,6 +170,12 @@ jobIn.mainClusterPath="/scratch/dir/path/output/from/pwd/command/above";
 ```
 #### (Step 04) Configure Parcluster Profile to Allow Headless Job Submission:
 
+*What does this step do?:*
+- This configuration sets up the cluster profile to use/accept your ssh keys generated eariler instead the default of asking for a password entry via a pop-up GUI window the first time you submit a job from within a given Matlab session.
+- This is absolutely critical for running 'headless' jobs because the default behavior of generating a pop-up gui window for manual password entry will fail in headless sessions where there is no GUI and prevent you from submitting your job.
+- This default behavior of requiring manual password entry would also prevent users from integrating Matlab workflows of this sort into larger automated pipelines as they would require users to stick around waiting for the instances where they have to enter a passcode.
+
+*Follow Steps Below:*
 - In your Matlab GUI, open 'parClusterSetup4HeadlessJobs.m' in your editor.
 - Under the 'Set Pars' (pictured below), set the 'clstrProfile' and 'localUserName' your remote cluster's profile and your username on your local computer:
 ```matlab
