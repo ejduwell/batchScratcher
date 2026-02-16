@@ -395,7 +395,7 @@ submitBatchClstrJobMain
 
 Or by hitting the green 'Run' button at the top of the Matlab editor window...
 
-### Instructions for Submitting Jobs 'Headless' Within the MATLAB GUI to Run in A Separate UNIX Terminal Window 
+### Submitting Jobs 'Headless' Within the MATLAB GUI to Run in A Separate Terminal Window:
 
 (allows you continued, full use your Matlab GUI while it runs)
 
