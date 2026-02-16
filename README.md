@@ -405,7 +405,7 @@ Or by hitting the green 'Run' button at the top of the Matlab editor window...
 
 *(this route allows you continued, full use your Matlab GUI while it runs)*
 
-#### 1) Open 'submitBatchClstrJobMain.m' and [update the parameters under the 'Set Pars' section just as described above](https://github.com/ejduwell/batchScratcher?tab=readme-ov-file#1-open-submitbatchclstrjobmainm-and-update-the-parameters-under-the-set-pars-section)
+#### 1) Open 'submitBatchClstrJobMain.m' and [update the parameters under the 'Set Pars' section just as described above](https://github.com/ejduwell/batchScratcher/blob/main/README.md#1-open-submitbatchclstrjobmainm-and-update-the-parameters-under-the-set-pars-section)
 
 #### 2) Instead of running 'submitBatchClstrJobMain.m' directly, open ['runHeadlessInUnixTerminal.m'](https://github.com/ejduwell/batchScratcher/blob/main/runHeadlessInUnixTerminal.m) and submit the job from there following these steps:
 
