@@ -220,6 +220,8 @@ To use this code:
 2. Add the root project folder to your MATLAB path (if not already done)
 3. Locate and run the main entry-point script(s) — found in the top level of the folder (e.g., `submitBatchClstrJobMain.m`).
 
+### Instructions for Submitting Jobs Entirely Within the MATLAB GUI:
+
 ### 1) Open 'submitBatchClstrJobMain.m' and update the parameters under the 'Set Pars' section:
 
 ```matlab
@@ -392,6 +394,11 @@ submitBatchClstrJobMain
 ```
 
 Or by hitting the green 'Run' button at the top of the Matlab editor window...
+
+### Instructions for Submitting Jobs 'Headless' Within the MATLAB GUI to Run in A Separate UNIX Terminal Window 
+
+(allows you continued, full use your Matlab GUI while it runs)
+
 
 ## Notes and Helpful Tips:
 
