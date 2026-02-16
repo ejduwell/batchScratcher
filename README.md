@@ -396,11 +396,15 @@ submitBatchClstrJobMain
 ```
 
 Or by hitting the green 'Run' button at the top of the Matlab editor window...
+
 ---
 
 ### Submitting 'Headless' Jobs Within the MATLAB GUI to Run in A Separate Terminal Window:
+
 ---
+
 *(this route allows you continued, full use your Matlab GUI while it runs)*
+
 #### 1) Open 'submitBatchClstrJobMain.m' and [update the parameters under the 'Set Pars' section just as described above](https://github.com/ejduwell/batchScratcher?tab=readme-ov-file#1-open-submitbatchclstrjobmainm-and-update-the-parameters-under-the-set-pars-section)
 
 #### 2) Instead of running 'submitBatchClstrJobMain.m' directly, open ['runHeadlessInUnixTerminal.m'](https://github.com/ejduwell/batchScratcher/blob/main/runHeadlessInUnixTerminal.m) and submit the job from there following these steps:
@@ -422,6 +426,7 @@ runHeadlessInUnixTerminal
 
 - If functioning properly, this should then automatically spawn a separate UNIX terminal window and start submitting the job from a 'headless' matlab session there.
 - When the job is finished, there should be a message in the terminal window prompting you to hit 'ENTER' to close the window. After doing this, the window should close. 
+
 ---
 
 ## Notes and Helpful Tips:
