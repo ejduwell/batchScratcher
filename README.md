@@ -427,6 +427,32 @@ runHeadlessInUnixTerminal
 - If functioning properly, this should then automatically spawn a separate UNIX terminal window and start submitting the job from a 'headless' matlab session there.
 - When the job is finished, there should be a message in the terminal window prompting you to hit 'ENTER' to close the window. After doing this, the window should close. 
 
+### Instructions for Running Local or Remote Matlab Jobs From a Shell Script or Terminal Window:
+
+*(this is for scenarios where you want to be fully 'headless'/ not use a Matlab GUI session to submit or run the job)*
+
+- The [runHeadlessMatlabJob.sh](https://github.com/ejduwell/batchScratcher/blob/main/runHeadlessMatlabJob.sh) bash function can also be used by itself as a standalone way to submit 'batch' Matlab jobs to a remote cluster (or to run Matlab scripts locally if you wish) from a UNIX terminal or from within a UNIX shell script. 
+
+- Syntax and example runHeadlessMatlabJob.sh usage are provided in the comment at the the top of the bash function. I've also pasted this below for convenience:
+```bash
+# runHeadlessMatlabJob.sh
+#
+# Run a MATLAB function/script headlessly (no GUI) using:
+#   matlab -nodisplay -nosplash -nodesktop -r "<command>"
+#
+# Adds one or more project directories recursively to the MATLAB path
+# before running the specified MATLAB function/script.
+#
+# Usage:
+#   ./runHeadlessMatlabJob.sh <matlabFile> <projectDir1> [projectDir2] [...]
+#
+# Example:
+#   ./runHeadlessMatlabJob.sh submitBatchClstrJobMain \
+#       "/home/username/projects/someProjectFolder" \
+#       "/home/username/projects/batchScratcher"
+# ------------------------------------------------------------------
+```
+
 ---
 
 ## Notes and Helpful Tips:
