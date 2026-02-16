@@ -488,7 +488,7 @@ runHeadlessInUnixTerminal
   source ~/.bashrc
   ```
   
-  - Otherwise, the .bashrc file is automatically sourced at the beginning of each new bash terminal session and batchScrather will therefore always be on your path
+  - Otherwise, the .bashrc file is automatically sourced at the beginning of each new bash terminal session and batchScrather will therefore always be on your path/all of it's functions will be available from the terminal window without needing to navigate to the installation folder.
   - To undo this, you can always re-open your .bashrc and remove these lines if you need or want to uninstall for any particular reason.
 
 ---
