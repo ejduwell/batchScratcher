@@ -13,8 +13,8 @@
 #
 # Example:
 #   ./runHeadlessMatlabJob.sh submitBatchClstrJobMain \
-#       "/home/eduwell/SynologyDrive/projects/revCorrStimFMRI" \
-#       "/home/eduwell/SynologyDrive/projects/batchScratcher"
+#       "/home/username/projects/someProjectFolder" \
+#       "/home/username/projects/batchScratcher"
 # ------------------------------------------------------------------
 
 set -euo pipefail
