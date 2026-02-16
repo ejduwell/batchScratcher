@@ -399,7 +399,7 @@ Or by hitting the green 'Run' button at the top of the Matlab editor window...
 
 ---
 
-### Submitting Jobs Within the MATLAB GUI to Run in A Separate Terminal Window:
+### Instructions for Submitting Jobs Within the MATLAB GUI to Run in A Separate Terminal Window:
 
 ---
 
