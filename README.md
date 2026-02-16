@@ -184,11 +184,13 @@ Installation/setup is now complete and **batchScratcher** should be ready to use
 | `pull_remote_dir_tar_slurm.sh`     | Bash function called by 'pullRemoteDirTarSlurm_v1.m' for preparing and pulling compressed copies of a remote project directory on cluster, and cleaning up the remote scratch after the job is done.                |
 | `syncDirCpy2MainDir.m`     | Matlab wrapper function for 'syncDirCpy2MainDir.sh' that syncs the output directory copy pulled down from the cluster to the temporary local folder in batchScratcher/mirror2cluster/ with the original project directory on the local machine and then cleans up the tempory local copy.              |
 | `syncDirCpy2MainDir.sh`     | Bash function called by the syncDirCpy2MainDir.m Matlab wrapper function, that uses rsync commands to detect and sync any new files/folders in the temporary output directory copy from the cluster job with the original local project directory. Also cleans up the local copy in the temporary subdirectory in batchScratcher/mirror2cluster/ by either archiving it in specified location or deleting it if specified.              |
-| `runHeadlessInUnixTerminal.m`     | Main entry-point function that allows users to submit remote batch jobs to the cluster from within the Matlab GUI, but in a manner that automatically spawns an external UNIX terminal and runs it in separate 'headless' terminal-based session (such that you can continue to work in the MATLAB GUI while it runs).
+| `parClusterSetup4HeadlessJobs.m`     | Matlab script for setting up the parcluster profile to be able to submit batch jobs 'headlessly' (i.e. from within a UNIX terminal without an associated Matlab GUI window) via 'runHeadlessMatlabJob.sh' and 'runHeadlessInUnixTerminal.m' .  |
+| `runHeadlessInUnixTerminal.m`     | Main entry-point function that allows users to submit remote batch jobs to the cluster from within the Matlab GUI, but in a manner that automatically spawns an external UNIX terminal and runs it in separate 'headless' terminal-based session (such that you can continue to work in the MATLAB GUI while it runs). |
 | `runHeadlessMatlabJob_wrapper.m`     | Matlab wrapper function for 'runHeadlessMatlabJob.sh' called by 'runHeadlessInUnixTerminal.m' that allows users to submit remote batch jobs to the cluster from within the Matlab GUI, but that automatically spawns an external UNIX terminal and runs it in separate 'headless' terminal-based session (such that you can continue to work in the MATLAB GUI while it runs).              |
+| `runHeadlessMatlabJob.sh`     | Bash function called by 'runHeadlessMatlabJob_wrapper.m' that allows users to submit remote batch jobs 'headlessly' (i.e. without a matlab gui window open) from within a UNIX terminal.              |
 | `mirror2cluster/`            | Sub-directory where other specified local project directories are copied an compressed prior to pushing to the remote cluster  |
 
-
+parClusterSetup4HeadlessJobs.m
 
 ## Usage:
 
