@@ -11,6 +11,10 @@ batchScratchFldr = fileparts(runScriptPth);
 % Specify main MATLAB entrypoint job script (no .m)
 matlabFile = "submitBatchClstrJobMain";
 
+% Specify folders to add to the path
+% (add any additional folders required for the job to this array)
+folders2add={batchScratchFldr};
+
 %% Run Job Headlessly in Seperate UNIX Terminal
 
-cmdOut = runHeadlessMatlabJob_wrapper(runScriptPth, matlabFile, {batchScratchFldr});
+cmdOut = runHeadlessMatlabJob_wrapper(runScriptPth, matlabFile, folders2add);
