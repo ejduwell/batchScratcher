@@ -60,7 +60,6 @@ batchScratcher also includes dedicated features that make it easy to run MATLAB 
 - **Headless job submission entry points**  
   - `runHeadlessInUnixTerminal.m`: Automatically spawns a separate UNIX terminal session from within MATLAB and submits a remote batch job headlessly, allowing you to continue working locally while the job runs remotely.
   - `runHeadlessMatlabJob.sh`: A standalone shell script that can be used entirely outside of MATLAB to run batch jobs. This enables seamless integration of MATLAB batch jobs with shell scripts, cron jobs, or larger automated workflows.
-  - `runHeadlessMatlabJob_wrapper.m`: A MATLAB wrapper around the shell submission script that further simplifies headless submission from within scripts or automated pipelines.
 
 - **Flexibility for Advanced Workflows**  
   Users can run MATLAB batch jobs from shell scripts or non-MATLAB workflows, enabling easy incorporation of MATLAB computation into larger data processing and analysis pipelines without requiring manual intervention.
