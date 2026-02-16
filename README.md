@@ -168,6 +168,18 @@ Open 'submitBatchClstrJobMain.m' in Matlab and set 'jobIn.mainClusterPath' equal
 % (i.e. paste the pwd command output copied above)
 jobIn.mainClusterPath="/scratch/dir/path/output/from/pwd/command/above";
 ```
+#### (Step 04) Configure Parcluster Profile to Allow Headless Job Submission:
+
+- In your Matlab GUI, open 'parClusterSetup4HeadlessJobs.m' in your editor.
+- Under the 'Set Pars' (pictured below), set the 'clstrProfile' and 'localUserName' your remote cluster's profile and your username on your local computer:
+```matlab
+%% Set Pars
+
+clstrProfile="HPC Cluster"; % cluster profile name string (i.e. like "HPC Cluster")
+localUserName="yourLocalUserName";
+```
+
+
 Installation/setup is now complete and **batchScratcher** should be ready to use...
 
 
