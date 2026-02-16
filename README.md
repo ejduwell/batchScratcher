@@ -468,7 +468,7 @@ runHeadlessInUnixTerminal
   ```
   - This should open a nano terminal-based editor window displaying the contents of your ~/.bashrc profile script
   - Scroll to the bottom and add the following lines your .bashrc script:
-    (replacing /path/to/your/install/of/batchScratcher/ with the full path to where you installed **batchScratcher on your machine)
+    (replacing /path/to/your/install/of/batchScratcher/ with the full path to where you installed **batchScratcher** on your machine)
   ```bash
   # Add batchScratcher folder to the path
   export PATH="/path/to/your/install/of/batchScratcher/:$PATH"
