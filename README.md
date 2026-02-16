@@ -9,6 +9,9 @@ Repository of functions that automate pushing data from your local machine to th
 - [Installation](https://github.com/ejduwell/batchScratcher/blob/main/README.md#installation)
 - [A brief list and overview of important files & folders](https://github.com/ejduwell/batchScratcher/blob/main/README.md#a-brief-list-and-overview-of-important-files--folders)
 - [Usage](https://github.com/ejduwell/batchScratcher/blob/main/README.md#usage)
+  - [For Submitting Jobs Entirely Within the MATLAB GUI](https://github.com/ejduwell/batchScratcher/blob/main/README.md#instructions-for-submitting-jobs-entirely-within-the-matlab-gui)
+  - [For Submitting Jobs Within the MATLAB GUI to Run in A Separate Terminal Window](https://github.com/ejduwell/batchScratcher/blob/main/README.md#instructions-for-submitting-jobs-within-the-matlab-gui-to-run-in-a-separate-terminal-window)
+  - [For Running Local or Remote Matlab Jobs From a Shell Script or Terminal Window](https://github.com/ejduwell/batchScratcher/blob/main/README.md#instructions-for-running-local-or-remote-matlab-jobs-from-a-shell-script-or-terminal-window)
 - [Notes and Helpful Tips](https://github.com/ejduwell/batchScratcher/blob/main/README.md#notes-and-helpful-tips)
   
 ## Overview:
@@ -427,7 +430,11 @@ runHeadlessInUnixTerminal
 - If functioning properly, this should then automatically spawn a separate UNIX terminal window and start submitting the job from a 'headless' matlab session there.
 - When the job is finished, there should be a message in the terminal window prompting you to hit 'ENTER' to close the window. After doing this, the window should close. 
 
+---
+
 ### Instructions for Running Local or Remote Matlab Jobs From a Shell Script or Terminal Window:
+
+---
 
 *(this is for scenarios where you want to be fully 'headless'/ not use a Matlab GUI session to submit or run the job)*
 
