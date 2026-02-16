@@ -460,6 +460,36 @@ runHeadlessInUnixTerminal
 # ------------------------------------------------------------------
 ```
 
+- Finally, if you are going to use 'runHeadlessMatlabJob.sh' or any other shell/bash functions included in **batchScratcher** in this fashion, you will likely want to add the the **batchScratcher** project folder to your permenant path.
+  - You can do this by adding some lines to your .bashrc profile script (or if you have a strong preference for a different shell, to that shell's corresponding rc profile script.. my example is for bash).
+  - First open a terminal window and run the following:
+  ```bash
+  nano ~/.bashrc
+  ```
+  - This should open a nano terminal-based editor window displaying the contents of your ~/.bashrc profile script
+  - Scroll to the bottom and add the following lines your .bashrc script:
+    (replacing /path/to/your/install/of/batchScratcher/ with the full path to where you installed **batchScratcher on your machine)
+  ```bash
+  # Add batchScratcher folder to the path
+  export PATH="/path/to/your/install/of/batchScratcher/:$PATH"
+  ```
+  - Then press 'control+X' to save and exit the .bashrc script
+  - You will then be prompted with a message that says
+  ```
+  Save modified buffer?
+  Y Yes
+  N No
+  ```
+  
+  - Type 'Y' and press 'Enter'
+  - To make these changes apply to the current bash terminal window run the following:
+  ```bash
+  source ~/.bashrc
+  ```
+  
+  - Otherwise, the .bashrc file is automatically sourced at the beginning of each new bash terminal session and batchScrather will therefore always be on your path
+  - To undo this, you can always re-open your .bashrc and remove these lines if you need or want to uninstall for any particular reason.
+
 ---
 
 ## Notes and Helpful Tips:
