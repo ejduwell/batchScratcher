@@ -221,7 +221,9 @@ To use this code:
 3. Locate and run the main entry-point script(s) — found in the top level of the folder (e.g., `submitBatchClstrJobMain.m`).
 
 ### Instructions for Submitting Jobs Entirely Within the MATLAB GUI:
+
 ---
+
 #### 1) Open 'submitBatchClstrJobMain.m' and update the parameters under the 'Set Pars' section:
 
 ```matlab
