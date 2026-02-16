@@ -55,18 +55,18 @@ For more experienced users, batchScratcher also provides:
 batchScratcher also includes dedicated features that make it easy to run MATLAB batch jobs **without any GUI**, directly from a terminal, script, or automated pipeline — ideal for users integrating Matlab cluster workflows into larger headless/scripted workflows.
 
 - **Headless parcluster setup**  
-  A dedicated script (`parClusterSetup4HeadlessJobs.m`) configures your MATLAB cluster profile so that jobs can be submitted without triggering GUI authentication prompts. This is critical for fully headless environments where no GUI is available. :contentReference[oaicite:1]{index=1}
+  A dedicated script (`parClusterSetup4HeadlessJobs.m`) configures your MATLAB cluster profile so that jobs can be submitted without triggering GUI authentication prompts. This is critical for fully headless environments where no GUI is available.
 
 - **Headless job submission entry points**  
-  - `runHeadlessInUnixTerminal.m`: Automatically spawns a separate UNIX terminal session from within MATLAB and submits a remote batch job headlessly, allowing you to continue working locally while the job runs remotely. :contentReference[oaicite:2]{index=2}  
-  - `runHeadlessMatlabJob.sh`: A standalone shell script that can be used entirely outside of MATLAB to run batch jobs. This enables seamless integration of MATLAB batch jobs with shell scripts, cron jobs, or larger automated workflows. :contentReference[oaicite:3]{index=3}  
-  - `runHeadlessMatlabJob_wrapper.m`: A MATLAB wrapper around the shell submission script that further simplifies headless submission from within scripts or automated pipelines. :contentReference[oaicite:4]{index=4}
+  - `runHeadlessInUnixTerminal.m`: Automatically spawns a separate UNIX terminal session from within MATLAB and submits a remote batch job headlessly, allowing you to continue working locally while the job runs remotely.
+  - `runHeadlessMatlabJob.sh`: A standalone shell script that can be used entirely outside of MATLAB to run batch jobs. This enables seamless integration of MATLAB batch jobs with shell scripts, cron jobs, or larger automated workflows.
+  - `runHeadlessMatlabJob_wrapper.m`: A MATLAB wrapper around the shell submission script that further simplifies headless submission from within scripts or automated pipelines.
 
 - **Seamless headless experience**  
-  These tools handle SSH/SLURM interactions, environment setup, and project directory mirroring automatically, so users can launch remote batch jobs without ever opening a MATLAB GUI session. This is particularly valuable when submitting jobs from remote terminals, HPC login nodes, or automated job schedulers.
+  These tools handle SSH/SLURM interactions, environment setup, and project directory mirroring automatically, so users can launch remote batch jobs without ever opening a MATLAB GUI session.
 
 - **Flexibility for Advanced Workflows**  
-  Users can run MATLAB batch jobs from shell scripts or non-MATLAB workflows, enabling easy incorporation of MATLAB computation into larger data processing and analysis pipelines without requiring manual intervention. :contentReference[oaicite:5]{index=5}
+  Users can run MATLAB batch jobs from shell scripts or non-MATLAB workflows, enabling easy incorporation of MATLAB computation into larger data processing and analysis pipelines without requiring manual intervention.
 
 
 ## Dependencies:
